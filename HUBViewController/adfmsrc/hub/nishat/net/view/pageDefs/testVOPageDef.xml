@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="testVOPageDef"
+                Package="hub.nishat.net.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_TEST1" RangeSize="25"
+              DataControl="AppModuleDataControl1" id="VO_TEST1Iterator"/>
+    <iterator Binds="VO_LeaveBalance1" RangeSize="25"
+              DataControl="HubModuleDataControl" id="VO_LeaveBalance1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="PersonId">
+      <AttrNames>
+        <Item Value="PersonId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="EmailAddress">
+      <AttrNames>
+        <Item Value="EmailAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="TempPass">
+      <AttrNames>
+        <Item Value="TempPass"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="LastUpdatedDate">
+      <AttrNames>
+        <Item Value="LastUpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="LastUpdatedBy">
+      <AttrNames>
+        <Item Value="LastUpdatedBy"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="Password">
+      <AttrNames>
+        <Item Value="Password"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="AnnualLeaveCriteria">
+      <AttrNames>
+        <Item Value="AnnualLeaveCriteria"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="CasualLeaveCriteria">
+      <AttrNames>
+        <Item Value="CasualLeaveCriteria"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="LateSittingCriteria">
+      <AttrNames>
+        <Item Value="LateSittingCriteria"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="EffectiveStartDate">
+      <AttrNames>
+        <Item Value="EffectiveStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="EffectiveEndDate">
+      <AttrNames>
+        <Item Value="EffectiveEndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="EmpType">
+      <AttrNames>
+        <Item Value="EmpType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="EmpCode">
+      <AttrNames>
+        <Item Value="EmpCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="IsHr">
+      <AttrNames>
+        <Item Value="IsHr"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_TEST1Iterator" id="AlternateApprovingAuth">
+      <AttrNames>
+        <Item Value="AlternateApprovingAuth"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="VO_TEST1Iterator" id="VO_TEST1">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.VO_TEST"
+                      Name="VO_TEST10">
+        <AttrNames>
+          <Item Value="PersonId"/>
+          <Item Value="EmailAddress"/>
+          <Item Value="TempPass"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="Password"/>
+          <Item Value="AnnualLeaveCriteria"/>
+          <Item Value="CasualLeaveCriteria"/>
+          <Item Value="LateSittingCriteria"/>
+          <Item Value="EffectiveStartDate"/>
+          <Item Value="EffectiveEndDate"/>
+          <Item Value="EmpType"/>
+          <Item Value="EmpCode"/>
+          <Item Value="IsHr"/>
+          <Item Value="AlternateApprovingAuth"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="VO_TEST1Iterator" id="VO_TEST11">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.VO_TEST"
+                      Name="VO_TEST110">
+        <AttrNames>
+          <Item Value="PersonId"/>
+          <Item Value="EmailAddress"/>
+          <Item Value="TempPass"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="Password"/>
+          <Item Value="AnnualLeaveCriteria"/>
+          <Item Value="CasualLeaveCriteria"/>
+          <Item Value="LateSittingCriteria"/>
+          <Item Value="EffectiveStartDate"/>
+          <Item Value="EffectiveEndDate"/>
+          <Item Value="EmpType"/>
+          <Item Value="EmpCode"/>
+          <Item Value="IsHr"/>
+          <Item Value="AlternateApprovingAuth"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="VO_LeaveBalance1Iterator" id="VO_LeaveBalance1">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.VO_LeaveBalance"
+                      Name="VO_LeaveBalance10">
+        <AttrNames>
+          <Item Value="LeaveBalanceId"/>
+          <Item Value="UserId"/>
+          <Item Value="LeaveTypeId"/>
+          <Item Value="TotalLeaves"/>
+          <Item Value="AvailedLeaves"/>
+          <Item Value="Month"/>
+          <Item Value="Year"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

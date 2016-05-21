@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="testtemplatepagePageDef"
+                Package="hub.nishat.net.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_LeaveBalance1" RangeSize="-1"
+              DataControl="HubModuleDataControl" id="VO_LeaveBalance1Iterator"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="VO_LeaveBalance1Iterator" id="VO_LeaveBalance1"
+                xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true" defaultAggregateType="SUM">
+            <item value="AvailedLeaves"/>
+            <item value="TotalLeaves"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="LeaveTypeId"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+    <action IterBinding="VO_LeaveBalance1Iterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="VO_LeaveBalance1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+  </bindings>
+</pageDefinition>

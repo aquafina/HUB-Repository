@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="untitled2PageDef"
+                Package="hub.nishat.net.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_SupervisorOrgChart2" RangeSize="25"
+              DataControl="HubModuleDataControl"
+              id="VO_SupervisorOrgChart2Iterator"/>
+    <iterator Binds="VO_LeaveBalance1" RangeSize="-1"
+              DataControl="HubModuleDataControl" id="VO_LeaveBalance1Iterator"/>
+    <iterator Binds="VO_Attendance5" RangeSize="25"
+              DataControl="HubModuleDataControl" id="VO_Attendance5Iterator"/>
+    <iterator Binds="VO_TEST1" RangeSize="25"
+              DataControl="AppModuleDataControl1" id="VO_TEST1Iterator"/>
+    <iterator Binds="VO_ADMIN_IRREGULARITIES1" RangeSize="25"
+              DataControl="HubModuleDataControl"
+              id="VO_ADMIN_IRREGULARITIES1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="VO_SupervisorOrgChart2Iterator"
+          id="VO_SupervisorOrgChart2">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.Supervisor.VO_SupervisorOrgChart"
+                      Name="VO_SupervisorOrgChart20">
+        <AttrNames>
+          <Item Value="HierarchyName"/>
+          <Item Value="ParentPersonId"/>
+          <Item Value="ParentPosition"/>
+          <Item Value="FullNameParent"/>
+          <Item Value="ParentPositionId"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ChildPersonIdVO_SupervisorOrgChart"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <pivotTable IterBinding="VO_LeaveBalance1Iterator" id="VO_LeaveBalance1"
+                xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true">
+            <item value="TotalLeaves"/>
+            <item value="AvailedLeaves"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="LeaveTypeId"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+    <tree IterBinding="VO_LeaveBalance1Iterator" id="VO_LeaveBalance11">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.VO_LeaveBalance"
+                      Name="VO_LeaveBalance110">
+        <AttrNames>
+          <Item Value="LeaveBalanceId"/>
+          <Item Value="UserId"/>
+          <Item Value="LeaveTypeId"/>
+          <Item Value="TotalLeaves"/>
+          <Item Value="AvailedLeaves"/>
+          <Item Value="Month"/>
+          <Item Value="Year"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="VO_Attendance5Iterator" id="VO_Attendance5">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.VO_Attendance"
+                      Name="VO_Attendance50">
+        <AttrNames>
+          <Item Value="EmpAtdId"/>
+          <Item Value="Description"/>
+          <Item Value="EmpId"/>
+          <Item Value="EmpName"/>
+          <Item Value="CardNum"/>
+          <Item Value="LeaveCancelled"/>
+          <Item Value="ExpectedWorkHours"/>
+          <Item Value="MinInTime"/>
+          <Item Value="MaxOutTime"/>
+          <Item Value="PreviousDayOutTime"/>
+          <Item Value="PreviousDayEffectiveHours"/>
+          <Item Value="Outtime"/>
+          <Item Value="Intime"/>
+          <Item Value="EffectiveWorkedHours"/>
+          <Item Value="Total"/>
+          <Item Value="MaxStartTime"/>
+          <Item Value="MaxEndTime"/>
+          <Item Value="EndTime"/>
+          <Item Value="StartTime"/>
+          <Item Value="AttendanceDate"/>
+          <Item Value="LeaveTypeId"/>
+          <Item Value="LeaveApprovedFlag"/>
+          <Item Value="TypeOfLeave"/>
+          <Item Value="PolicyException"/>
+          <Item Value="LeaveToday"/>
+          <Item Value="IsHalf"/>
+          <Item Value="WorkingTime"/>
+          <Item Value="LeaveType"/>
+          <Item Value="PolicyExceptionApprovedFlag"/>
+          <Item Value="LateSittingMinTiming"/>
+          <Item Value="Day"/>
+          <Item Value="Today"/>
+          <Item Value="Month"/>
+          <Item Value="MonthNumber"/>
+          <Item Value="Year"/>
+          <Item Value="OffDayWorking"/>
+          <Item Value="EmpType"/>
+          <Item Value="LateIn"/>
+          <Item Value="EarlyOut"/>
+          <Item Value="DayStatus"/>
+          <Item Value="Sysdate"/>
+          <Item Value="off_day_working_bool"/>
+          <Item Value="saturdayOrHoliday"/>
+          <Item Value="isSunday"/>
+          <Item Value="isLeave"/>
+          <Item Value="HoursMissing"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="VO_TEST1Iterator" id="VO_TEST1">
+      <nodeDefinition DefName="hub.nishat.net.model.VO.VO_TEST"
+                      Name="VO_TEST10">
+        <AttrNames>
+          <Item Value="PersonId"/>
+          <Item Value="EmailAddress"/>
+          <Item Value="TempPass"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="LastUpdatedBy"/>
+          <Item Value="Password"/>
+          <Item Value="AnnualLeaveCriteria"/>
+          <Item Value="CasualLeaveCriteria"/>
+          <Item Value="LateSittingCriteria"/>
+          <Item Value="EffectiveStartDate"/>
+          <Item Value="EffectiveEndDate"/>
+          <Item Value="EmpType"/>
+          <Item Value="EmpCode"/>
+          <Item Value="IsHr"/>
+          <Item Value="AlternateApprovingAuth"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="VO_ADMIN_IRREGULARITIES1Iterator" id="Execute"
+            RequiresUpdateModel="true" Action="iteratorExecute"/>
+  </bindings>
+</pageDefinition>

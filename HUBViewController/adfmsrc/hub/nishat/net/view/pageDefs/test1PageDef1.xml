@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="test1PageDef1"
+                Package="hub.nishat.net.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="VO_MISSING_MINUTES2" RangeSize="-1"
+              DataControl="HubModuleDataControl"
+              id="VO_MISSING_MINUTES2Iterator"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="VO_MISSING_MINUTES2Iterator"
+                id="VO_MISSING_MINUTES2"
+                xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true">
+            <item value="EmpId"/>
+            <item value="MissingMinutes"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="AttendanceDate"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+  </bindings>
+</pageDefinition>

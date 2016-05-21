@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/template/hub_template.jspx" id="pt1">
+          <f:facet name="header"/>
+          <f:facet name="footer"/>
+          <f:facet name="left"/>
+          <f:facet name="content">
+            <af:group id="g1">
+              <af:inputListOfValues id="inputListOfValues1"
+                                    popupTitle="Search and Select: #{bindings.EmpName.hints.label}"
+                                    value="#{bindings.EmpName.inputValue}"
+                                    label="#{bindings.EmpName.hints.label}"
+                                    model="#{bindings.EmpName.listOfValuesModel}"
+                                    required="#{bindings.EmpName.hints.mandatory}"
+                                    columns="#{bindings.EmpName.hints.displayWidth}"
+                                    shortDesc="#{bindings.EmpName.hints.tooltip}">
+                <f:validator binding="#{bindings.EmpName.validator}"/>
+              </af:inputListOfValues>
+              <af:selectOneChoice value="#{bindings.Month.inputValue}"
+                                  label="#{bindings.Month.label}"
+                                  required="#{bindings.Month.hints.mandatory}"
+                                  shortDesc="#{bindings.Month.hints.tooltip}"
+                                  id="soc1">
+                <f:selectItems value="#{bindings.Month.items}" id="si1"/>
+              </af:selectOneChoice>
+              <af:selectOneChoice value="#{bindings.Year.inputValue}"
+                                  label="#{bindings.Year.label}"
+                                  required="#{bindings.Year.hints.mandatory}"
+                                  shortDesc="#{bindings.Year.hints.tooltip}"
+                                  id="soc2">
+                <f:selectItems value="#{bindings.Year.items}" id="si2"/>
+              </af:selectOneChoice>
+              <af:commandButton text="unpost" id="cb1"/>
+            </af:group>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

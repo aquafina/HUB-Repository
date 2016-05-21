@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.64.93"
+          id="LeaveBalanceRec" Package="view.nishat.net.CustomDataControl"
+          BeanClass="view.nishat.net.CustomDataControl.LeaveBalanceRec"
+          isJavaBased="true">
+  <Attribute Name="leaveType" Type="java.lang.String">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="view.nishat.net.CustomDataControl.LeaveBalanceRec.leaveType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="leaveAvailed" Type="float" PrecisionRule="false"
+             Precision="0" Scale="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="view.nishat.net.CustomDataControl.LeaveBalanceRec.unpaid_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="leaveAvailable" Type="float">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="view.nishat.net.CustomDataControl.LeaveBalanceRec.leaveAvailable_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="unpaid" Type="float" PrecisionRule="false" Precision="0"
+             Scale="0">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="UNPAID"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="remaining" Type="float">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL ResId="view.nishat.net.CustomDataControl.LeaveBalanceRec.remaining_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <ConstructorMethod IsCollection="true"
+                     Type="view.nishat.net.CustomDataControl.LeaveBalanceRec"
+                     BeanClass="view.nishat.net.CustomDataControl.LeaveBalanceRec"
+                     id="LeaveBalanceRec"/>
+  <ResourceBundle>
+    <PropertiesBundle xmlns="http://xmlns.oracle.com/adfm/resourcebundle"
+                      PropertiesFile="hub.nishat.net.view.HUBViewControllerBundle"/>
+  </ResourceBundle>
+</JavaBean>

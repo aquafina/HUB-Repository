@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/template/hub_template.jspx" id="pt1">
+          <f:facet name="header"/>
+          <f:facet name="footer"/>
+          <f:facet name="left"/>
+          <f:facet name="content">
+            <af:group id="g1">
+              <af:inputText label="Label 1" id="it1" value="#{TestBean.value}"
+                            autoSubmit="true">
+                <af:setPropertyListener from="#{TestBean.value} "
+                                        to="#{TestBean.value2} "
+                                        type="contextInfo"/>
+              </af:inputText>
+              <af:activeOutputText value="#{TestBean.value2}" id="aot1"
+                                   partialTriggers="it1"/>
+              <af:commandButton text="commandButton 1" id="cb1"/>
+              <af:commandButton
+                                text="Execute"
+                                disabled="#{!bindings.Execute.enabled}"
+                                id="cb2" action="#{TestBean.cb2_action}"/>
+              <af:goLink text="goLink 1" id="gl1"/>
+            </af:group>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:TestBean-->
+</jsp:root>

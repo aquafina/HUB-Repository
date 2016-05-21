@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.64.93" id="HRAddTravellingLeavesPageDef"
+                Package="hub.nishat.net.view.pageDefs">
+  <parameters/>
+  <executables>
+    <iterator Binds="VO_TravellingLeavesHR1" RangeSize="25"
+              DataControl="HubModuleDataControl"
+              id="VO_TravellingLeavesHR1Iterator"/>
+    <iterator Binds="VO_ADMIN_IRREGULARITIES1" RangeSize="25"
+              DataControl="HubModuleDataControl"
+              id="VO_ADMIN_IRREGULARITIES1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="VO_TravellingLeavesHR1Iterator" id="ExecuteWithParams"
+            RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="BND_EMP_NAME" NDType="java.lang.String"/>
+      <NamedData NDName="startDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="endDate" NDType="oracle.jbo.domain.Date"/>
+      <NamedData NDName="userId" NDType="java.lang.String"
+                 NDValue="${bindings.ExecuteWithParams_userId}"/>
+    </action>
+    <listOfValues StaticList="false"
+                  IterBinding="VO_ADMIN_IRREGULARITIES1Iterator"
+                  Uses="LOV_FullName" id="FullName"/>
+    <attributeValues IterBinding="VO_ADMIN_IRREGULARITIES1Iterator" id="EmpId">
+      <AttrNames>
+        <Item Value="EmpId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
