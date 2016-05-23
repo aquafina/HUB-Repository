@@ -103,6 +103,19 @@ public class EO_ConsumedLeavesImpl
         obj.setJobStatus((String)value);
       }
     }
+    ,
+    Comments
+    {
+      public Object get(EO_ConsumedLeavesImpl obj)
+      {
+        return obj.getComments();
+      }
+
+      public void put(EO_ConsumedLeavesImpl obj, Object value)
+      {
+        obj.setComments((String)value);
+      }
+    }
     ;
     private static AttributesEnum[] vals = null;
     private static final int firstIndex = 0;
@@ -135,18 +148,32 @@ public class EO_ConsumedLeavesImpl
       return vals;
     }
   }
+
   public static final int CONSUMEDLEAVESID = AttributesEnum.ConsumedLeavesId.index();
   public static final int LEAVETYPE = AttributesEnum.LeaveType.index();
   public static final int CAUSE = AttributesEnum.Cause.index();
   public static final int USERID = AttributesEnum.UserId.index();
   public static final int LEAVEDATE = AttributesEnum.LeaveDate.index();
   public static final int JOBSTATUS = AttributesEnum.JobStatus.index();
+  public static final int COMMENTS = AttributesEnum.Comments.index();
 
   /**
    * This is the default constructor (do not remove).
    */
   public EO_ConsumedLeavesImpl()
   {
+  }
+
+  /**
+   * @return the definition object for this instance class.
+   */
+  public static synchronized EntityDefImpl getDefinitionObject()
+  {
+    if (mDefinitionObject == null)
+    {
+      mDefinitionObject = EntityDefImpl.findDefObject("hub.nishat.net.model.EO.EO_ConsumedLeaves");
+    }
+    return mDefinitionObject;
   }
 
   /**
@@ -258,6 +285,24 @@ public class EO_ConsumedLeavesImpl
   }
 
   /**
+   * Gets the attribute value for Comments, using the alias name Comments.
+   * @return the Comments
+   */
+  public String getComments()
+  {
+    return (String)getAttributeInternal(COMMENTS);
+  }
+
+  /**
+   * Sets <code>value</code> as the attribute value for Comments.
+   * @param value value to set the Comments
+   */
+  public void setComments(String value)
+  {
+    setAttributeInternal(COMMENTS, value);
+  }
+
+  /**
    * getAttrInvokeAccessor: generated method. Do not modify.
    * @param index the index identifying the attribute
    * @param attrDef the attribute
@@ -296,6 +341,7 @@ public class EO_ConsumedLeavesImpl
     super.setAttrInvokeAccessor(index, value, attrDef);
   }
 
+
   /**
    * @param consumedLeavesId key constituent
 
@@ -306,18 +352,6 @@ public class EO_ConsumedLeavesImpl
     return new Key(new Object[]{consumedLeavesId});
   }
 
-  /**
-   * @return the definition object for this instance class.
-   */
-  public static synchronized EntityDefImpl getDefinitionObject()
-  {
-    if (mDefinitionObject == null)
-    {
-      mDefinitionObject = EntityDefImpl.findDefObject("hub.nishat.net.model.EO.EO_ConsumedLeaves");
-    }
-    return mDefinitionObject;
-  }
-  
   /**
    * Add attribute defaulting logic in this method.
    * @param attributeList list of attribute names/values to initialize the row

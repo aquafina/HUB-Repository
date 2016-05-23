@@ -168,5 +168,11 @@
     </attributeValues>
     <list IterBinding="VO_AdminConsumedLeaves1Iterator" StaticList="false"
           Uses="LOV_LeaveType" id="LeaveType1" DTSupportsMRU="false"/>
+    <attributeValues IterBinding="VO_AdminConsumedLeaves1Iterator"
+                     id="Comments">
+      <AttrNames>
+        <Item Value="Comments"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

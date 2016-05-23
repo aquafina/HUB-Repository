@@ -86,6 +86,18 @@
       <Attr Name="_DisplaySize" Value="3"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Comments"
+    Precision="100"
+    ColumnName="COMMENTS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_E_PORTAL_CONSUMED_LEAVES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="SysC00573221"
     PrimaryKey="true">

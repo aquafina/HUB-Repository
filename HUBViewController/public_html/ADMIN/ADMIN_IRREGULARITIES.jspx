@@ -486,7 +486,8 @@
                               maximumLength="#{bindings.UserId.hints.precision}"
                               shortDesc="#{bindings.UserId.hints.tooltip}" id="it1"
                               partialTriggers="fullNameChild1Id"
-                              readOnly="true">
+                              readOnly="true"
+                              binding="#{AdminResponsibilityBean.userIdAddLeave}">
                   <f:validator binding="#{bindings.UserId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.UserId.format}"/>
@@ -505,7 +506,8 @@
                               label="#{bindings.LeaveDate.hints.label}"
                               required="#{bindings.LeaveDate.hints.mandatory}"
                               shortDesc="#{bindings.LeaveDate.hints.tooltip}"
-                              id="id6">
+                              id="id6"
+                              binding="#{AdminResponsibilityBean.leaveDate}">
                   <f:validator binding="#{bindings.LeaveDate.validator}"/>
                   <af:convertDateTime pattern="#{bindings.LeaveDate.format}"/>
                 </af:inputDate>
@@ -513,20 +515,28 @@
                                     label="#{bindings.LeaveType1.label}"
                                     required="#{bindings.LeaveType1.hints.mandatory}"
                                     shortDesc="#{bindings.LeaveType1.hints.tooltip}"
-                                    id="soc4">
+                                    id="soc4"
+                                    binding="#{AdminResponsibilityBean.leaveType}">
                   <f:selectItems value="#{bindings.LeaveType1.items}" id="si4"/>
                 </af:selectOneChoice>
+                <af:inputText value="#{bindings.Comments.inputValue}"
+                              label="#{bindings.Comments.hints.label}"
+                              required="#{bindings.Comments.hints.mandatory}"
+                              columns="#{bindings.Comments.hints.displayWidth}"
+                              maximumLength="#{bindings.Comments.hints.precision}"
+                              shortDesc="#{bindings.Comments.hints.tooltip}"
+                              id="it5">
+                  <f:validator binding="#{bindings.Comments.validator}"/>
+                </af:inputText>
               </af:panelFormLayout>
               <af:panelGroupLayout id="pgl5">
                 <af:commandButton actionListener="#{bindings.CreateInsert1.execute}"
                                   text="New"
                                   disabled="#{!bindings.CreateInsert1.enabled}"
                                   id="cb8"/>
-                <af:commandButton actionListener="#{bindings.Commit.execute}"
-                                  text="Save"
-                                  disabled="#{!bindings.Commit.enabled}"
-                                  id="cb9"/>
               </af:panelGroupLayout>
+              <af:commandButton text="Save" id="cb9"
+                                actionListener="#{AdminResponsibilityBean.saveLeaveActionListener}"/>
             </af:panelFormLayout>
           </af:panelBox>
           <af:commandButton text="Generate Empty Attendance" id="cb6"

@@ -108,6 +108,7 @@
     EO_ConsumedLeaves.LEAVE_DATE, 
     EO_ConsumedLeaves.LEAVE_TYPE, 
     EO_ConsumedLeaves.USER_ID, 
+    EO_ConsumedLeaves.Comments,
     XX_E_PORTAL_EMP_SUMMARY.EMP_ID EMP_ID, 
     XX_E_PORTAL_EMP_SUMMARY.HODEMAIL HODEMAIL, 
     XX_E_PORTAL_EMP_SUMMARY.FULL_NAME_CHILD FULL_NAME_CHILD, 
@@ -171,6 +172,12 @@ WHERE
     EntityAttrName="UserId"
     EntityUsage="EO_ConsumedLeaves"
     AliasName="USER_ID"/>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    EntityAttrName="Comments"
+    EntityUsage="EO_ConsumedLeaves"
+    AliasName="COMMENTS"/>
   <ViewAttribute
     Name="EmpId"
     IsPersistent="false"
