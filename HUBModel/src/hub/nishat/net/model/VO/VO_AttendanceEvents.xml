@@ -42,6 +42,9 @@
     <AttrArray Name="ListAttrNames">
       <Item Value="LeaveType"/>
     </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="LeaveType"/>
+    </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
   <EntityUsage

@@ -487,7 +487,8 @@
                               shortDesc="#{bindings.UserId.hints.tooltip}" id="it1"
                               partialTriggers="fullNameChild1Id"
                               readOnly="true"
-                              binding="#{AdminResponsibilityBean.userIdAddLeave}">
+                              binding="#{AdminResponsibilityBean.userIdAddLeave}"
+                              disabled="true" visible="false">
                   <f:validator binding="#{bindings.UserId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.UserId.format}"/>
@@ -495,7 +496,7 @@
                 <af:inputListOfValues id="fullNameChild1Id"
                                       popupTitle="Search and Select: #{bindings.FullNameChild1.hints.label}"
                                       value="#{bindings.FullNameChild1.inputValue}"
-                                      label="#{bindings.FullNameChild1.hints.label}"
+                                      label="Employee Name"
                                       model="#{bindings.FullNameChild1.listOfValuesModel}"
                                       required="#{bindings.FullNameChild1.hints.mandatory}"
                                       shortDesc="#{bindings.FullNameChild1.hints.tooltip}"
@@ -512,7 +513,7 @@
                   <af:convertDateTime pattern="#{bindings.LeaveDate.format}"/>
                 </af:inputDate>
                 <af:selectOneChoice value="#{bindings.LeaveType1.inputValue}"
-                                    label="#{bindings.LeaveType1.label}"
+                                    label="Leave Type"
                                     required="#{bindings.LeaveType1.hints.mandatory}"
                                     shortDesc="#{bindings.LeaveType1.hints.tooltip}"
                                     id="soc4"
@@ -534,9 +535,9 @@
                                   text="New"
                                   disabled="#{!bindings.CreateInsert1.enabled}"
                                   id="cb8"/>
+                <af:commandButton text="Save" id="cb9"
+                                  actionListener="#{AdminResponsibilityBean.saveLeaveActionListener}"/>
               </af:panelGroupLayout>
-              <af:commandButton text="Save" id="cb9"
-                                actionListener="#{AdminResponsibilityBean.saveLeaveActionListener}"/>
             </af:panelFormLayout>
           </af:panelBox>
           <af:commandButton text="Generate Empty Attendance" id="cb6"
