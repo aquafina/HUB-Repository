@@ -81,14 +81,13 @@ public class AdminResponsibility
       RowSetIterator rsi = voConsumedLeaves.createRowSetIterator(null);
       if (rsi.getAllRowsInRange().length>0)
       {
-        Row currRowConsumedLeaves = null;
-        do
+        Row currRowConsumedLeaves = rsi.next();
+        while(currRowConsumedLeaves!=null)
         {
-          currRowConsumedLeaves = rsi.next();
           CommonUtil.log(rsi.getCurrentRow().getAttribute("ConsumedLeavesId").toString());
-          rsi.getCurrentRow().remove();
+          currRowConsumedLeaves.remove();
+          currRowConsumedLeaves = rsi.next();
         }
-        while(rsi.next()!=null);
 //        voConsumedLeaves.getDBTransaction().commit();
       }
       /** REMOVE THE LEAVE_TODAY AND LEAVE_TYPE FLAGS FROM ATTENDANCE TABLE **/
@@ -102,14 +101,13 @@ public class AdminResponsibility
       CommonUtil.log("length of atd = "+rsi.getAllRowsInRange().length);
       if (rsi.getAllRowsInRange().length>0)
       {
-        Row currRowAttendance = null;
-        do
+        Row currRowAttendance = rsi.next();
+        while (currRowAttendance!=null)
         {
+          currRowAttendance.setAttribute("LeaveToday", null);
+          currRowAttendance.setAttribute("TypeOfLeave", null);
           currRowAttendance = rsi.next();
-          rsi.getCurrentRow().setAttribute("LeaveToday", null);
-          rsi.getCurrentRow().setAttribute("TypeOfLeave", null);
         }
-        while(rsi.next()!=null);
       }
       am.getTransaction().commit();
     }
