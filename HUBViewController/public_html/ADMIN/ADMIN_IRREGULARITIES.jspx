@@ -488,7 +488,7 @@
                               partialTriggers="fullNameChild1Id"
                               readOnly="true"
                               binding="#{AdminResponsibilityBean.userIdAddLeave}"
-                              disabled="true" visible="false">
+                              disabled="true" visible="true" autoSubmit="true">
                   <f:validator binding="#{bindings.UserId.validator}"/>
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.UserId.format}"/>

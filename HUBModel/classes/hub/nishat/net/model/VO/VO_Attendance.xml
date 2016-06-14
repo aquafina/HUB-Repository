@@ -124,7 +124,8 @@ Att.POLICY_EXCEPTION_APPROVED_FLAG,
        to_number(to_char(att.ATTENDANCE_DATE,'MM')+0) month_number,
        to_char(att.ATTENDANCE_DATE,'YYYY') year,
        Att.off_day_working,
-       att.emp_type
+       att.emp_type,
+       att.comments
 FROM XX_E_PORTAL_EMP_ATD Att,
         xx_e_portal_emp_atd_v att_v,
         xx_e_portal_late_sitting late_sitting,
@@ -606,6 +607,12 @@ order by Att.ATTENDANCE_DATE asc]]>
     ColumnType="VARCHAR2"
     AliasName="VIEW_ATTR"
     SQLType="VARCHAR"/>
+  <ViewAttribute
+    Name="Comments"
+    PrecisionRule="true"
+    EntityAttrName="Comments"
+    EntityUsage="EO_Attendance"
+    AliasName="COMMENTS"/>
   <ViewCriteria
     Name="VO_AttendanceCriteria"
     ViewObjectName="hub.nishat.net.model.VO.VO_Attendance"

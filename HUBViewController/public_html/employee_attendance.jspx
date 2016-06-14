@@ -646,7 +646,7 @@
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.AttendanceDate.name}"
                                  filterable="false" sortable="true"
                                  headerText="Attendance Date" id="c3"
-                                 align="left" width="200">
+                                 align="left" width="205">
                         <f:facet name="filter"/>
                         <af:inputDate value="#{row.bindings.AttendanceDate.inputValue}"
                                       label="#{bindings.VO_Attendance2.hints.AttendanceDate.label}"
@@ -676,8 +676,9 @@
                       </af:column>
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.Intime.name}"
                                  filterable="false" sortable="true"
-                                 headerText="In Time" id="c11" align="center">
-                        <af:inputText value="#{row.bindings.Intime.inputValue} "
+                                 headerText="In Time" id="c11" align="center"
+                                 width="105">
+                        <af:inputText value="#{row.bindings.Intime.inputValue}"
                                       label="#{bindings.VO_Attendance2.hints.Intime.label}"
                                       required="#{bindings.VO_Attendance2.hints.Intime.mandatory}"
                                       columns="#{bindings.VO_Attendance2.hints.Intime.displayWidth}"
@@ -689,7 +690,8 @@
                       </af:column>
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.Outtime.name}"
                                  filterable="false" sortable="true" id="c33"
-                                 headerText="Out Time" align="center">
+                                 headerText="Out Time" align="center"
+                                 width="105">
                         <af:inputText value="#{ row.bindings.Outtime.inputValue} "
                                       label="#{bindings.VO_Attendance2.hints.Outtime.label}"
                                       required="#{bindings.VO_Attendance2.hints.Outtime.mandatory}"
@@ -702,14 +704,16 @@
                       </af:column>
                       <af:column id="c77" align="center"
                                  headerText="Hours Total"
-                                 visible="#{sessionScope.EMP_TYPE=='3' or sessionScope.EMP_TYPE=='2'}">
+                                 visible="#{sessionScope.EMP_TYPE=='3' or sessionScope.EMP_TYPE=='2'}"
+                                 width="105">
                         <af:outputText value="#{row.Total}" id="ot25"/>
                       </af:column>
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.EffectiveWorkedHours.name}"
                                  filterable="false" sortable="true"
                                  headerText="Hours Worked" id="c4"
                                  align="center"
-                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}">
+                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}"
+                                 width="105">
                         <af:outputText
                                        shortDesc="#{bindings.VO_Attendance2.hints.EffectiveWorkedHours.tooltip}"
                                        id="it1ghf6"
@@ -721,7 +725,8 @@
                       <af:column id="c51" headerText="Missing Time"
                                  align="center"
                                  rendered="#{bindings.EmpType.inputValue == '2'}"
-                                 visible="#{sessionScope.EMP_TYPE!='3'}">
+                                 visible="#{sessionScope.EMP_TYPE!='3'}"
+                                 width="105">
                         <af:outputText value="#{ row.HoursMissing} " id="ot7"
                                        rendered="#{(row.EmpType == '2' or  row.EmpType == '3' ) ? 'true' : 'false' }"/>
                       </af:column>
@@ -952,7 +957,8 @@
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.LateIn.name}"
                                  filterable="false" sortable="true"
                                  headerText="Late In" id="c24" align="center"
-                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}">
+                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}"
+                                 width="105">
                         <af:inputText value="#{row.bindings.LateIn.inputValue} "
                                       label="#{bindings.VO_Attendance2.hints.LateIn.label}"
                                       required="#{bindings.VO_Attendance2.hints.LateIn.mandatory}"
@@ -971,7 +977,8 @@
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.EarlyOut.name}"
                                  filterable="false" sortable="true"
                                  headerText="Early Out" id="c26" align="center"
-                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}">
+                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}"
+                                 width="105">
                         <af:inputText value="#{row.bindings.EarlyOut.inputValue}"
                                       label="#{bindings.VO_Attendance2.hints.EarlyOut.label}"
                                       required="#{bindings.VO_Attendance2.hints.EarlyOut.mandatory}"
@@ -995,7 +1002,7 @@
                           <f:validator binding="#{row.bindings.off_day_working_bool.validator}"/>
                         </af:selectBooleanCheckbox>
                       </af:column>
-                      <af:column id="c46" width="150" headerText="Status"
+                      <af:column id="c46" width="155" headerText="Status"
                                  align="center">
                         <af:panelGroupLayout id="pgl6" layout="horizontal">
                           <af:outputText value="#{row.saturdayOrHoliday}"
@@ -1034,6 +1041,23 @@
                                       id="it25">
                           <f:validator binding="#{row.bindings.Sysdate.validator}"/>
                         </af:inputText>
+                      </af:column>
+                      <af:column id="c79" headerText="Comments" align="center"
+                                 width="225">
+                        <af:panelGroupLayout id="pgl19" layout="horizontal">
+                          <af:inputText value="#{row.bindings.Comments.inputValue}"
+                                        label="#{bindings.VO_Attendance2.hints.Comments.label}"
+                                        required="#{bindings.VO_Attendance2.hints.Comments.mandatory}"
+                                        maximumLength="#{bindings.VO_Attendance2.hints.Comments.precision}"
+                                        shortDesc="#{bindings.VO_Attendance2.hints.Comments.tooltip}"
+                                        id="it44" autoSubmit="true"
+                                        binding="#{AttendanceBean.comments}">
+                            <f:validator binding="#{row.bindings.Comments.validator}"/>
+                          </af:inputText>
+                          <af:separator id="s6"/>
+                          <af:commandButton text="Save" id="cb17"
+                                            actionListener="#{AttendanceBean.saveComments}"/>
+                        </af:panelGroupLayout>
                       </af:column>
                     </af:table>
                   </af:panelCollection>

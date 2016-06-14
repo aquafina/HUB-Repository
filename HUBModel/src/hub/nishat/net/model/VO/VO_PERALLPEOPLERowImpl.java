@@ -2025,6 +2025,8 @@ public class VO_PERALLPEOPLERowImpl
       return vals;
     }
   }
+
+
   public static final int PERSONID = AttributesEnum.PersonId.index();
   public static final int EFFECTIVESTARTDATE = AttributesEnum.EffectiveStartDate.index();
   public static final int EFFECTIVEENDDATE = AttributesEnum.EffectiveEndDate.index();

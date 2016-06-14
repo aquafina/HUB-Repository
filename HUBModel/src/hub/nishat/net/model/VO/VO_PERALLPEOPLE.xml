@@ -178,7 +178,8 @@ to_char(to_date(HR_PER_ALL_PEOPLE_F.ATTRIBUTE4,'dd/mm/rrrr'),'DD-MM-YYYY') joini
     HR_PER_ALL_PEOPLE_F.GLOBAL_NAME GLOBAL_NAME, 
     HR_PER_ALL_PEOPLE_F.LOCAL_NAME LOCAL_NAME 
 FROM 
-    PER_ALL_PEOPLE_F HR_PER_ALL_PEOPLE_F]]>
+    PER_ALL_PEOPLE_F HR_PER_ALL_PEOPLE_F
+WHERE sysdate <= effective_end_date]]>
   </SQLQuery>
   <ViewAttribute
     Name="PersonId"

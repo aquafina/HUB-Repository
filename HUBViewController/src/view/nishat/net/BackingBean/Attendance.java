@@ -44,6 +44,7 @@ import javax.faces.application.Application;
 import javax.faces.component.html.HtmlInputText;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.PhaseEvent;
 
 import javax.faces.event.ValueChangeEvent;
@@ -192,7 +193,8 @@ public class Attendance {
     /*#######################################################*/
     String leaveIdForLFA = null;
   private RichSelectBooleanCheckbox isLCF;
-  
+  private RichInputText comments;
+
 
   public Attendance() {
         leaves = new HashMap<String, Integer>();
@@ -2457,5 +2459,24 @@ rsi.getNextRangeSet(); /**Test this statement by applying for just 1eave*/
   public RichSelectBooleanCheckbox getIsLCF()
   {
     return isLCF;
+  }
+
+  public void saveComments(ActionEvent actionEvent)
+  {
+    String comments = getComments()==null?null:getComments().getValue()==null?null:getComments().getValue().toString();
+    Row currRow = CommonUtil.getSelectedRow("VO_Attendance2Iterator");
+    currRow.setAttribute("Comments", comments); 
+    HubModuleImpl am = (HubModuleImpl)CommonUtil.getAppModule();
+    am.getTransaction().commit();
+  }
+
+  public void setComments(RichInputText comments)
+  {
+    this.comments = comments;
+  }
+
+  public RichInputText getComments()
+  {
+    return comments;
   }
 }

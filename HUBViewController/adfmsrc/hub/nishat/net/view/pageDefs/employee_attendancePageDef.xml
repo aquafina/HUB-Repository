@@ -107,6 +107,7 @@
           <Item Value="HoursMissing"/>
           <Item Value="EmpType"/>
           <Item Value="Total"/>
+          <Item Value="Comments"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

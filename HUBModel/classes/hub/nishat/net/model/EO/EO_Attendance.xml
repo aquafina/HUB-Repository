@@ -284,4 +284,16 @@
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Comments"
+    Precision="200"
+    ColumnName="COMMENTS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XX_E_PORTAL_EMP_ATD">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
 </Entity>

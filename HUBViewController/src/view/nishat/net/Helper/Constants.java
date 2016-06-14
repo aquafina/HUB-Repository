@@ -35,4 +35,5 @@ public class Constants {
     public static final String SESSION_LATES_UNPAID = "lates_unpaid";
   
     public static final String SESSION_PARENT_EMAIL = "parent_email_address";
+    
 }

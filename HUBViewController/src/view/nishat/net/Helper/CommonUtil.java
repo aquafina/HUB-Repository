@@ -70,6 +70,8 @@ public class CommonUtil {
     public static final String CURR_MONTH_NAME = "month_name";
     public static final String CURR_MONTH_DAYS = "month_days";
     public static final String PREVIOUS_MONTH_NAME = "p_month_name";
+    public static boolean IS_RAMADAN = true;
+    
     private static String connectionString =
         "jdbc:oracle:thin:@192.168.0.2:1521:oranctex";
     private static String user = "cyber_ncl";
@@ -86,7 +88,8 @@ public class CommonUtil {
   private static final String LATE_LEAVE = "LATE_LEAVE";
   private static Map<String, Integer> leaves;
     public static String leaveIdForLFA = null;
-
+  public static long ramadanExpectedWorkTime = 390;
+  public static long normalExpectedWorkTime = 480;
     public static String limitSubtractTime(String time1, String time2,
                                            String totalHours) {
         String difference = "";
@@ -107,18 +110,34 @@ public class CommonUtil {
                         "0" + "#" + (diffMinutes <= 9 ? ("0" + diffMinutes) :
                                      (diffMinutes + ""));
             }
-            if (totalMin >= 480) { //480 for 6 hours
-                //diffHours = 8;
-                diffMinutes = 0;
+          if (!IS_RAMADAN)
+          {
+            if (totalMin >= normalExpectedWorkTime) { //480 for 8 hours
+                diffHours = 8;
+                diffMinutes = 00;
                 difference =
-                        totalHours + "#" + (diffMinutes <= 9 ? ("0" + diffMinutes) :
+                        diffHours + "#" + (diffMinutes <= 9 ? ("0" + diffMinutes) :
                                             (diffMinutes + ""));
             } else {
                 difference =
                         diffHours + "#" + (diffMinutes <= 9 ? ("0" + diffMinutes) :
                                            (diffMinutes + ""));
             }
-
+          }
+          else
+          {
+            if (totalMin >= ramadanExpectedWorkTime) { //480 for 8 hours
+                diffHours = 6;
+                diffMinutes = 30;
+                difference =
+                        diffHours + "#" + (diffMinutes <= 9 ? ("0" + diffMinutes) :
+                                            (diffMinutes + ""));
+            } else {
+                difference =
+                        diffHours + "#" + (diffMinutes <= 9 ? ("0" + diffMinutes) :
+                                           (diffMinutes + ""));
+            }
+          }
 
         } catch (Exception e) {
             difference = "";
