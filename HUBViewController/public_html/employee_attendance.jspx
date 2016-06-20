@@ -702,17 +702,15 @@
                           <f:validator binding="#{row.bindings.Outtime.validator}"/>
                         </af:inputText>
                       </af:column>
-                      <af:column id="c77" align="center"
+                      <!--<af:column id="c77" align="center"
                                  headerText="Hours Total"
-                                 visible="#{sessionScope.EMP_TYPE=='3' or sessionScope.EMP_TYPE=='2'}"
                                  width="105">
                         <af:outputText value="#{row.Total}" id="ot25"/>
-                      </af:column>
+                      </af:column>-->
                       <af:column sortProperty="#{bindings.VO_Attendance2.hints.EffectiveWorkedHours.name}"
                                  filterable="false" sortable="true"
                                  headerText="Hours Worked" id="c4"
                                  align="center"
-                                 visible="#{sessionScope.EMP_TYPE!='3' and sessionScope.EMP_TYPE!='2'}"
                                  width="105">
                         <af:outputText
                                        shortDesc="#{bindings.VO_Attendance2.hints.EffectiveWorkedHours.tooltip}"

@@ -102,7 +102,7 @@
        to_char(att.max_out_time,'hh12:MI AM') outTime,
        to_char(att.min_in_time,'hh12:MI AM') inTime,  
        Att.EFFECTIVE_WORKED_HOURS, 
-       Att_v.TOTAL,
+       Att.TOTAL,
        Att.MAX_START_TIME, 
        Att.MAX_END_TIME, 
        Att.END_TIME, 

@@ -995,18 +995,44 @@ public class CommonUtil {
       String startDate = "1/7/"+(currYear-1);
       String endDate = "1/7/" + currYear;
       String where = null;
-      if (currMonth<7)
+      String isContractual = CommonUtil.getSessionValue(Constants.SESSION_IS_CONTRACTUAL)==null?"":CommonUtil.getSessionValue(Constants.SESSION_IS_CONTRACTUAL).toString();
+      if (isContractual.equals("Y"))
       {
-          where =
-              "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() + "' and " +
-              "leave_date between to_date('"+startDate+"','dd/mm/yyyy') and " +
-              "to_date('"+endDate+"','dd/mm/yyyy')";
+        ViewObjectImpl voPerAllPeople = am.getVO_PERALLPEOPLE1();
+        where = "person_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() + "' and sysdate between effective_start_date and effective_end_date";
+        voPerAllPeople.setWhereClause(where);
+        voPerAllPeople.executeQuery();
+        where = null;
+        RowSetIterator rsi = voPerAllPeople.createRowSetIterator(null);
+        Row currRow = rsi.getAllRowsInRange().length>0?rsi.getAllRowsInRange()[0]:null;
+        if (currRow!=null)
+        {
+          String contractStartDateStr = currRow.getAttribute("JoiningDate").toString();
+          java.util.Date contractStartDate = CommonUtil.convertFromStringToUtilDate(contractStartDateStr);
+          Calendar cal = Calendar.getInstance();
+          cal.setTime(contractStartDate);
+          cal.add(Calendar.YEAR,1);
+          java.util.Date contractEndDate = cal.getTime();
+          where = "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() + "' and " +
+                "leave_date between to_date('"+CommonUtil.convertFromJAVADateToSQLDate(contractStartDate)+"','yyyy/mm/dd') and " +
+                "to_date('"+CommonUtil.convertFromJAVADateToSQLDate(contractEndDate)+"','yyyy/mm/dd')";
+        }
       }
-      else 
+      else
       {
-          where =
-              "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-              "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
+        if (currMonth<7)
+        {
+            where =
+                "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() + "' and " +
+                "leave_date between to_date('"+startDate+"','dd/mm/yyyy') and " +
+                "to_date('"+endDate+"','dd/mm/yyyy')";
+        }
+        else 
+        {
+            where =
+                "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
+                "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
+        }
       }
       CommonUtil.log(where);
       voConsumedLeaves.setWhereClause(where);

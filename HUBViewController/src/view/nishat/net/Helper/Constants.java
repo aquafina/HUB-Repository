@@ -18,6 +18,7 @@ public class Constants {
     public static final String SESSION_HOD_EMAIL = "hod_email";
     public static final String SESSION_SELECTED_EMP_ID = "SELECTED_EMP_ID";
     public static final String SESSION_CURRENT_DATE = "DDMMYY";
+    public static final String SESSION_IS_CONTRACTUAL = "IS_CONTRACTUAL";
     
     public static final String SESSION_CASUAL_AVAILED = "casual_availed";
     public static final String SESSION_ANNUAL_AVAILED = "annual_availed";

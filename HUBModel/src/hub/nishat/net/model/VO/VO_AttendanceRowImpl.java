@@ -539,7 +539,7 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
     {
       public Object get(VO_AttendanceRowImpl obj)
       {
-          return obj.getEarlyOut();
+        return obj.getEarlyOut();
       }
 
       public void put(VO_AttendanceRowImpl obj, Object value)
@@ -1011,7 +1011,10 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
      * @return the EFFECTIVE_WORKED_HOURS
      */
     public String getEffectiveWorkedHours() {
-        return (String)getAttributeInternal(EFFECTIVEWORKEDHOURS);
+      CommonUtil.log("Hello emp type = "+getEmpType().toString());
+      if (getEmpType().toString().equals("2") || getEmpType().toString().equals("3"))
+        return (String)getAttributeInternal(TOTAL);
+      else return (String)getAttributeInternal(EFFECTIVEWORKEDHOURS);
     }
 
     public void deductLeave(String leaveType) {
