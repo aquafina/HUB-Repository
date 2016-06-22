@@ -54,7 +54,13 @@ EO_LeaveRequests.leave_type = leave_types.LEAVE_TYPE_ID
 and EO_LeaveRequests.user_id = users.child_person_id
 and EO_LeaveRequests.APROVED_FLAG is null
 and EO_LeaveRequests.approval_required = 'Y'
-and users.parent_person_id = :parent_id
+and users.parent_person_id like '%'||
+case 
+    when :parent_id = (select person_id from xx_e_portal_users where alternate_approving_auth is not null and person_id = :parent_id)
+    then ''
+    else :parent_id
+end
+||'%'
 and  EO_LeaveRequests.USER_ID = epcl.user_id(+)
 and EO_LeaveRequests.leave_type = epcl.leave_type(+) 
 and EO_LeaveRequests.leave_id not in (select LFA.leave_id from xx_e_portal_lfa LFA where LFA.USER_ID = EO_LEAVEREQUESTS.USER_ID

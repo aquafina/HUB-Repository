@@ -90,9 +90,14 @@
               <af:goButton text="All Approvals" id="goButton5"
                            destination="/faces/SupervisorView/supervisor_responsibilities.jspx"
                            rendered="#{(sessionScope.IS_AAT == 'Y' ) ?'true':'false'}"/>
+              <af:goButton text="HR Operations" id="pt_gb10"
+                           destination="/faces/HR/HROperations.jspx"/>
               <af:goButton text="Admin" id="pt_gb8"
-                           visible="#{(sessionScope.IS_AAT == 'Y' ) ?'true':'false'}"
-                           destination="faces/ADMIN/ADMIN_IRREGULARITIES.jspx"/>
+                           visible="#{(sessionScope.is_hr == 'Y' ) ?'true':'false'}"
+                           destination="/faces/ADMIN/ADMIN_IRREGULARITIES.jspx"/>
+              <af:goButton text="Travelling" id="pt_gb9"
+                           visible="#{(sessionScope.is_hr == 'Y' ) ?'true':'false'}"
+                           destination="/faces/HR/HRAddTravellingLeaves.jspx"/>
               <af:goButton text="Posting" id="pt_gb5"
                            destination="/faces/HR/HROperations.jspx"
                            rendered="#{sessionScope.is_hr == 'Y' ? 'true' : 'false'}"/>
