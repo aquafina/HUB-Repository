@@ -131,9 +131,13 @@
               </af:panelBox>
               <af:panelBox text="Missing Minutes" id="pb1"
                            disclosed="false"
-                           visible="#{bindings.EmpType1.inputValue=='2' or bindings.EmpType1.inputValue=='3'}"
                            partialTriggers="t1">
                 <f:facet name="toolbar"/>
+                <af:commandButton text="Export" id="cb4">
+                  <af:exportCollectionActionListener exportedId="t5"
+                                                     type="excelHTML"
+                                                     filename="Missing Minutes.xls"/>
+                </af:commandButton>
                 <af:table value="#{bindings.VO_MISSING_MINUTES4.collectionModel}"
                           var="row"
                           rows="#{bindings.VO_MISSING_MINUTES4.rangeSize}"

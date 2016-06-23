@@ -195,35 +195,42 @@
                 </af:inputText>
               </af:panelBox>
               <af:panelBox text="Missed Minutes" id="pb7"
-                           visible="#{sessionScope.EMP_TYPE=='3' or sessionScope.EMP_TYPE=='2'}"
+                           visible="#{sessionScope.userid=='199' or sessionScope.userid=='2959'}"
                            persist="" partialTriggers="pc1:t1" type="flow"
                            disclosed="false" showDisclosure="true">
                 <f:facet name="toolbar"/>
-                <af:table value="#{bindings.VO_MISSING_MINUTES1.collectionModel}"
-                          var="row"
-                          rows="#{bindings.VO_MISSING_MINUTES1.rangeSize}"
-                          emptyText="#{bindings.VO_MISSING_MINUTES1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          fetchSize="#{bindings.VO_MISSING_MINUTES1.rangeSize}"
-                          rowBandingInterval="0" id="t8"
-                          partialTriggers="::soc3 ::soc4">
-                  <af:column sortProperty="#{bindings.VO_MISSING_MINUTES1.hints.AttendanceDate.name}"
-                             sortable="false"
-                             headerText="#{bindings.VO_MISSING_MINUTES1.hints.AttendanceDate.label}"
-                             id="c76">
-                    <af:outputText value="#{row.AttendanceDate}" id="ot46">
-                      <af:convertDateTime pattern="#{bindings.VO_MISSING_MINUTES1.hints.AttendanceDate.format}"/>
-                    </af:outputText>
-                  </af:column>
-                  <af:column sortProperty="#{bindings.VO_MISSING_MINUTES1.hints.MissingMinutes.name}"
-                             sortable="false"
-                             headerText="#{bindings.VO_MISSING_MINUTES1.hints.MissingMinutes.label}"
-                             id="c75">
-                    <af:outputText value="#{row.MissingMinutes}" id="ot45">
-                      <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.VO_MISSING_MINUTES1.hints.MissingMinutes.format}"/>
-                    </af:outputText>
-                  </af:column>
-                </af:table>
+                <af:panelGroupLayout id="pgl20">
+                  <af:commandButton text="Export" id="cb18">
+                    <af:exportCollectionActionListener exportedId="t8"
+                                                       type="excelHTML"
+                                                       filename="Missed Minutes.xls"/>
+                  </af:commandButton>
+                  <af:table value="#{bindings.VO_MISSING_MINUTES1.collectionModel}"
+                            var="row"
+                            rows="#{bindings.VO_MISSING_MINUTES1.rangeSize}"
+                            emptyText="#{bindings.VO_MISSING_MINUTES1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.VO_MISSING_MINUTES1.rangeSize}"
+                            rowBandingInterval="0" id="t8"
+                            partialTriggers="::soc3 ::soc4">
+                    <af:column sortProperty="#{bindings.VO_MISSING_MINUTES1.hints.AttendanceDate.name}"
+                               sortable="false"
+                               headerText="#{bindings.VO_MISSING_MINUTES1.hints.AttendanceDate.label}"
+                               id="c76">
+                      <af:outputText value="#{row.AttendanceDate}" id="ot46">
+                        <af:convertDateTime pattern="#{bindings.VO_MISSING_MINUTES1.hints.AttendanceDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.VO_MISSING_MINUTES1.hints.MissingMinutes.name}"
+                               sortable="false"
+                               headerText="#{bindings.VO_MISSING_MINUTES1.hints.MissingMinutes.label}"
+                               id="c75">
+                      <af:outputText value="#{row.MissingMinutes}" id="ot45">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.VO_MISSING_MINUTES1.hints.MissingMinutes.format}"/>
+                      </af:outputText>
+                    </af:column>
+                  </af:table>
+                </af:panelGroupLayout>
                 <af:panelFormLayout id="pfl4" partialTriggers="t8">
                   <af:inputText value="#{bindings.FinalMissed.inputValue}"
                                 label="Final Missed Time"

@@ -91,7 +91,8 @@
                            destination="/faces/SupervisorView/supervisor_responsibilities.jspx"
                            rendered="#{(sessionScope.IS_AAT == 'Y' ) ?'true':'false'}"/>
               <af:goButton text="HR Operations" id="pt_gb10"
-                           destination="/faces/HR/HROperations.jspx"/>
+                           destination="/faces/HR/HROperations.jspx"
+                           visible="#{(sessionScope.is_hr == 'Y' ) ?'true':'false'}"/>
               <af:goButton text="Admin" id="pt_gb8"
                            visible="#{(sessionScope.is_hr == 'Y' ) ?'true':'false'}"
                            destination="/faces/ADMIN/ADMIN_IRREGULARITIES.jspx"/>
