@@ -1235,9 +1235,9 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
           Calendar cal = Calendar.getInstance();
           cal.setTime(dateToday);
           java.util.Date ramadanStartDate = CommonUtil.convertFromStringToUtilDate(ramadanStartDateStr);
-          
+          java.util.Date ramadanEndDate = CommonUtil.convertFromStringToUtilDate(ramadanEndDateStr);
             /**THIS CODE IS FOR RAMADAN ONLY**/
-            if (cal.getTime().compareTo(ramadanStartDate)<0)
+            if (cal.getTime().compareTo(ramadanStartDate)<0 || cal.getTime().compareTo(ramadanEndDate)>0)
             {
             CommonUtil.IS_RAMADAN = false;
               System.out.println("date is before Ramadan");
@@ -1257,7 +1257,6 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
                     //System.out.println(" from 10:30 AM");
                 } else if (lateSittingMins >= 149 && lateSittingMins <= 209) {
                     maxInFlexiC = "11:00 AM";
-                    
                     //System.out.println(" from 11:00 AM");
                 } else if (lateSittingMins > 209) {
                     maxInFlexiC = "11:30 AM";
@@ -1266,8 +1265,6 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
                     maxInFlexiC = maxInFlexi;
                 }
                 status = maxInFlexiC;
-                
-
             } else {
                 maxInFlexiC = maxInFlexi;
             }
