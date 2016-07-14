@@ -990,7 +990,7 @@ public class CommonUtil {
       ViewObjectImpl voConsumedLeaves = am.getVO_ConsumedLeaves1();
       CommonUtil.resetWhereClause(voConsumedLeaves);
       Calendar calendar = Calendar.getInstance();
-      int currMonth = calendar.get(Calendar.MONTH);
+      int currMonth = calendar.get(Calendar.MONTH)+1;
       int currYear = calendar.get(Calendar.YEAR);
       String startDate = "1/7/"+(currYear-1);
       String endDate = "1/7/" + currYear;
@@ -1034,7 +1034,7 @@ public class CommonUtil {
                 "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
         }
       }
-      CommonUtil.log(where);
+      CommonUtil.log("availed leaves query "+where);
       voConsumedLeaves.setWhereClause(where);
       voConsumedLeaves.executeQuery();
 
@@ -1095,7 +1095,7 @@ public class CommonUtil {
       CommonUtil.resetWhereClause(voLeaveBalance);
 
       String whereClause =
-          "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"'";
+          "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and year = 2017";
       
       CommonUtil.log(whereClause);
       voLeaveBalance.setWhereClause(whereClause);
@@ -1154,7 +1154,7 @@ public class CommonUtil {
       CommonUtil.createUserSession(Constants.SESSION_SHORT_AVAILABLE,
                                    String.valueOf(shortAvailable));
       CommonUtil.createUserSession(Constants.SESSION_LATES_AVAILABLE,
-                                   String.valueOf(latesAvailable));  
+                                   String.valueOf(latesAvailable));
       
     CommonUtil.createUserSession(Constants.SESSION_CASUAL_UNPAID,
                                  String.valueOf(casualUnpaid));
