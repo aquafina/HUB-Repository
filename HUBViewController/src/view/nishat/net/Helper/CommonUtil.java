@@ -743,6 +743,7 @@ public class CommonUtil {
         {
           monthsTillDate = getNumberOfMonthsBetween(fiscalYearStartDate, currDate);
           totalLeavesTillDate = maxLeaves * (monthsTillDate/12);
+          CommonUtil.log("totalLeavesTillDate = "+totalLeavesTillDate);
         }
         else
         {
@@ -750,7 +751,9 @@ public class CommonUtil {
           System.out.print("monnths till date = "+monthsTillDate);
           float monthsTillFiscalEnd = getNumberOfMonthsBetween(joiningDate, getFiscalYearEndDate());
           totalLeavesTillDate = maxLeaves * (monthsTillDate/monthsTillFiscalEnd);
+          CommonUtil.log("totalLeavesTillDate = "+totalLeavesTillDate);
         }
+        CommonUtil.log("totalLeavesTillDate = "+totalLeavesTillDate);
         return totalLeavesTillDate;
       }
     }
@@ -1020,19 +1023,19 @@ public class CommonUtil {
       }
       else
       {
-        if (currMonth<7)
-        {
+//        if (currMonth<7)
+//        {
             where =
                 "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() + "' and " +
                 "leave_date between to_date('"+startDate+"','dd/mm/yyyy') and " +
                 "to_date('"+endDate+"','dd/mm/yyyy')";
-        }
-        else 
-        {
-            where =
-                "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-                "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
-        }
+//        }
+//        else 
+//        {
+//            where =
+//                "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
+//               "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
+//        }
       }
       CommonUtil.log("availed leaves query "+where);
       voConsumedLeaves.setWhereClause(where);
@@ -1095,7 +1098,7 @@ public class CommonUtil {
       CommonUtil.resetWhereClause(voLeaveBalance);
 
       String whereClause =
-          "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and year = 2017";
+          "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and year = 2016";
       
       CommonUtil.log(whereClause);
       voLeaveBalance.setWhereClause(whereClause);

@@ -35,7 +35,8 @@
                         rowBandingInterval="0"
                         selectedRowKeys="#{bindings.VO_ActiveEmployees4.collectionModel.selectedRow}"
                         rowSelection="single" id="t1" partialTriggers="::soc1"
-                        selectionListener="#{HROperationBean.activeEmployeesSelectionListener}">
+                        selectionListener="#{HROperationBean.activeEmployeesSelectionListener}"
+                        scrollPolicy="scroll">
                 <af:column sortProperty="#{bindings.VO_ActiveEmployees4.hints.Id.name}"
                            sortable="false"
                            headerText="#{bindings.VO_ActiveEmployees4.hints.Id.label}"

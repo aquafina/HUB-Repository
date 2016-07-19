@@ -139,7 +139,7 @@ public class VO_LeaveReportHRRowImpl
 
   private int currLeaveType = 0;
   float totalAvailable = 0;
-  oracle.jbo.domain.Number totalAvailableNumber = null;
+  oracle.jbo.domain.Number totalAvailableNumber = new Number(0);
 
 
   public static final int LEAVETYPE = AttributesEnum.LeaveType.index();
@@ -216,8 +216,9 @@ public class VO_LeaveReportHRRowImpl
   public Number getTotalAvailable()
   {
     totalAvailable = getAttributeInternal(TOTALAVAILABLE)==null?0:Float.parseFloat(getAttributeInternal(TOTALAVAILABLE).toString());
-    //return (Number) getAttributeInternal(TOTALAVAILABLE);
-    try
+    return (Number) getAttributeInternal(TOTALAVAILABLE);
+    /**COMMENTING THE CODE TO LET THE HR VIEW COMPLETE AVAILABLE LEAVES OF USERS**/
+    /*try
     {
       totalAvailableNumber = new oracle.jbo.domain.Number(CommonUtil.round(CommonUtil.getLeavesTillDate(totalAvailable,CommonUtil.getSessionValue(Constants.SESSION_SELECTED_EMP_ID).toString()),2));
     }
@@ -227,7 +228,8 @@ public class VO_LeaveReportHRRowImpl
     catch (SQLException e)
     {
     }
-    return totalAvailableNumber;
+    return totalAvailableNumber;*/
+    /**COMMENTING THE CODE TO LET THE HR VIEW COMPLETE AVAILABLE LEAVES OF USERS**/
   }
 
   /**
@@ -264,8 +266,8 @@ public class VO_LeaveReportHRRowImpl
   public String getRemaining()
   {
     //return (String) getAttributeInternal(REMAINING);
-    double totalAvailable =
-       Double.parseDouble(totalAvailableNumber.toString());
+//    double totalAvailable =
+//       Double.parseDouble(totalAvailableNumber.toString());
     double totalAvailed = getAttributeInternal(TOTALAVAILED)==null?0:Double.parseDouble(getAttributeInternal(TOTALAVAILED).toString());
     if (totalAvailable == 0) return "0";
     double remaining = CommonUtil.round((totalAvailable - totalAvailed),2);

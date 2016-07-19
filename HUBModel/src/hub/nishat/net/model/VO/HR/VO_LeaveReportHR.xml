@@ -31,31 +31,31 @@
     <![CDATA[select  distinct 
         '1' leave_type,
         :userId user_id,
-        (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '1' and user_id = :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,
-         nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 1 and user_id = :userId and to_char(leave_date,'yyyy') = to_char(getFiscalYearStartDate(),'yyyy')group by leave_type  ),0)+
-        nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 3 and user_id = :userId and to_char(leave_date,'yyyy') = to_char(getFiscalYearStartDate(),'yyyy') group by leave_type  )/2,0) total_availed
+          (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '1' and user_id = :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,
+         nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 1 and user_id = :userId and leave_date >= getPreviousFiscalYearStartDate() and leave_date < getPreviousFiscalYearEndDate () group by leave_type  ),0)+
+        nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 3 and user_id = :userId and leave_date >= getPreviousFiscalYearStartDate() and leave_date < getPreviousFiscalYearEndDate () group by leave_type  )/2,0) total_availed
 from xx_e_portal_consumed_leaves CONSUMED_LEAVES
 union
 select  distinct 
         '2' leave_type,
         :userId user_id,
-        (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '2' and user_id =  :userId  and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,   
-         nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 2 and user_id =  :userId and to_char(leave_date,'yyyy') = to_char(getFiscalYearStartDate(),'yyyy') group by leave_type  ),0)+
-        nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 4 and user_id =  :userId and to_char(leave_date,'yyyy') = to_char(getFiscalYearStartDate(),'yyyy') group by leave_type  )/2,0) annual
+          (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '2' and user_id = :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,   
+         nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 2 and user_id =  :userId and leave_date >= getPreviousFiscalYearStartDate() and leave_date < getPreviousFiscalYearEndDate () group by leave_type  ),0)+
+        nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 4 and user_id =  :userId and leave_date >= getPreviousFiscalYearStartDate() and leave_date < getPreviousFiscalYearEndDate () group by leave_type  )/2,0) annual
 from xx_e_portal_consumed_leaves CONSUMED_LEAVES
 union
 select  distinct 
         '5' leave_type,
         :userId user_id,
-        (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '5' and user_id =  :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,       
-       nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 5 and user_id =  :userId and to_char(leave_date,'yyyy') = to_char(getFiscalYearStartDate(),'yyyy') group by leave_type  ),0) short
+          (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '5' and user_id = :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,       
+       nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 5 and user_id =  :userId and leave_date >= getPreviousFiscalYearStartDate() and leave_date < getPreviousFiscalYearEndDate () group by leave_type  ),0) short
 from xx_e_portal_consumed_leaves CONSUMED_LEAVES
 union
 select  distinct 
         '6' leave_type,
         :userId user_id,
-        (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '6' and user_id = :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,       
-       nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 6 and user_id =  :userId and to_char(leave_date,'yyyy') = to_char(getFiscalYearStartDate(),'yyyy') group by leave_type  ),0) lates
+          (select total_leaves from xx_e_portal_emp_leave_balance where leave_type_id = '6' and user_id = :userId and year =  to_char (getFiscalYearStartDate (), 'yyyy')) total_available,       
+       nvl((select count(leave_type) from xx_e_portal_consumed_leaves where leave_type = 6 and user_id =  :userId and leave_date >= getPreviousFiscalYearStartDate() and leave_date < getPreviousFiscalYearEndDate () group by leave_type  ),0) lates
 from xx_e_portal_consumed_leaves CONSUMED_LEAVES]]>
   </SQLQuery>
   <ViewAttribute
