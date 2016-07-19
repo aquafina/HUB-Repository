@@ -1240,7 +1240,7 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
             if (cal.getTime().compareTo(ramadanStartDate)<0 || cal.getTime().compareTo(ramadanEndDate)>0)
             {
             CommonUtil.IS_RAMADAN = false;
-              System.out.println("date is before Ramadan");
+              System.out.println("date is other than Ramadan");
             if (previousDayOutTime != null && !empId.equals("5217") && !empId.equals("226")) {
                 workAfterOfficeTimings =
                         CommonUtil.subtractTime("6:30 PM", getPreviousDayOutTime()).replace("#",
@@ -1394,6 +1394,7 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
                     //CommonUtil.log("Early outttttttt "+ earlyOut);
                 } else if (min_diff_intime_and_startTime > 0) {
                     //System.out.println("Case#2 "+endTime + " - " + outtime);
+                    CommonUtil.log("min_diff_intime_and_startTime = "+min_diff_intime_and_startTime);
                     earlyOut = CommonUtil.limitSubtractTime(outtime, endTime,getExpectedWorkHours());
                 } else if (min_diff_intime_and_maxStartTime < 0) {
                     //System.out.println("Case#3 "+maxEndtime + " - " + outtime);

@@ -140,6 +140,8 @@ public class VO_LeaveReportHRRowImpl
   private int currLeaveType = 0;
   float totalAvailable = 0;
   oracle.jbo.domain.Number totalAvailableNumber = null;
+
+
   public static final int LEAVETYPE = AttributesEnum.LeaveType.index();
   public static final int USERID = AttributesEnum.UserId.index();
   public static final int TOTALAVAILABLE = AttributesEnum.TotalAvailable.index();

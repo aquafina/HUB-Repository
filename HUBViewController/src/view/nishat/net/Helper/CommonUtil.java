@@ -126,7 +126,7 @@ public class CommonUtil {
           }
           else
           {
-            if (totalMin >= ramadanExpectedWorkTime) { //480 for 8 hours
+            if (totalMin >= ramadanExpectedWorkTime) { //390 for 6 hours 30 mins
                 diffHours = 6;
                 diffMinutes = 30;
                 difference =
