@@ -139,6 +139,16 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
                 obj.setCalculatedLeaves((String)value);
             }
         }
+        ,
+        TotalHoursMissed {
+            public Object get(VO_PARTTIMESRowImpl obj) {
+                return obj.getTotalHoursMissed();
+            }
+
+            public void put(VO_PARTTIMESRowImpl obj, Object value) {
+                obj.setTotalHoursMissed((String)value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static final int firstIndex = 0;
@@ -182,6 +192,7 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
     public static final int MONTH = AttributesEnum.Month.index();
     public static final int FINALMISSED = AttributesEnum.FinalMissed.index();
     public static final int CALCULATEDLEAVES = AttributesEnum.CalculatedLeaves.index();
+    public static final int TOTALHOURSMISSED = AttributesEnum.TotalHoursMissed.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -447,6 +458,22 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
      */
     public void setCalculatedLeaves(String value) {
         setAttributeInternal(CALCULATEDLEAVES, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute TotalHoursMissed.
+     * @return the TotalHoursMissed
+     */
+    public String getTotalHoursMissed() {
+        return (String) getAttributeInternal(TOTALHOURSMISSED);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute TotalHoursMissed.
+     * @param value value to set the  TotalHoursMissed
+     */
+    public void setTotalHoursMissed(String value) {
+        setAttributeInternal(TOTALHOURSMISSED, value);
     }
 
     /**

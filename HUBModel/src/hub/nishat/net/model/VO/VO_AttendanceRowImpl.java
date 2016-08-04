@@ -1361,7 +1361,7 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
                 CommonUtil.subtractTime(intime, maxStartTime);
             String diff_intime_and_maxEndTime =
                 CommonUtil.subtractTime(intime, maxEndtime);
-
+            CommonUtil.log("min_diff_intime_and_startTime = "+diff_intime_and_startTime);
             int min_diff_intime_and_startTime =
                 Integer.parseInt(diff_intime_and_startTime.replace("#",
                                                                    ":").split(":")[0]) +
