@@ -232,23 +232,23 @@
                   </af:table>
                 </af:panelGroupLayout>
                 <af:panelFormLayout id="pfl4" partialTriggers="t8">
-                  <af:inputText value="#{bindings.FinalMissed.inputValue}"
-                                label="Final Missed Time"
-                                required="#{bindings.FinalMissed.hints.mandatory}"
-                                columns="#{bindings.FinalMissed.hints.displayWidth}"
-                                maximumLength="#{bindings.FinalMissed.hints.precision}"
-                                shortDesc="#{bindings.FinalMissed.hints.tooltip}"
+                  <af:inputText value="#{bindings.FinalMissed1.inputValue}"
+                                label="#{bindings.FinalMissed1.hints.label}"
+                                required="#{bindings.FinalMissed1.hints.mandatory}"
+                                columns="#{bindings.FinalMissed1.hints.displayWidth}"
+                                maximumLength="#{bindings.FinalMissed1.hints.precision}"
+                                shortDesc="#{bindings.FinalMissed1.hints.tooltip}"
                                 id="it62" partialTriggers="t8">
-                    <f:validator binding="#{bindings.FinalMissed.validator}"/>
+                    <f:validator binding="#{bindings.FinalMissed1.validator}"/>
                   </af:inputText>
-                  <af:inputText value="#{bindings.CalculatedLeaves.inputValue}"
-                                label="Monthly Calculated Leaves"
-                                required="#{bindings.CalculatedLeaves.hints.mandatory}"
-                                columns="#{bindings.CalculatedLeaves.hints.displayWidth}"
-                                maximumLength="#{bindings.CalculatedLeaves.hints.precision}"
-                                shortDesc="#{bindings.CalculatedLeaves.hints.tooltip}"
+                  <af:inputText value="#{bindings.CalculatedLeaves1.inputValue}"
+                                label="#{bindings.CalculatedLeaves1.hints.label}"
+                                required="#{bindings.CalculatedLeaves1.hints.mandatory}"
+                                columns="#{bindings.CalculatedLeaves1.hints.displayWidth}"
+                                maximumLength="#{bindings.CalculatedLeaves1.hints.precision}"
+                                shortDesc="#{bindings.CalculatedLeaves1.hints.tooltip}"
                                 id="it68" partialTriggers="t8">
-                    <f:validator binding="#{bindings.CalculatedLeaves.validator}"/>
+                    <f:validator binding="#{bindings.CalculatedLeaves1.validator}"/>
                   </af:inputText>
                 </af:panelFormLayout>
                 <af:inputText value="#{bindings.EmpId.inputValue}"

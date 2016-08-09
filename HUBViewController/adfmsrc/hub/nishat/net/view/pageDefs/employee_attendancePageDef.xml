@@ -59,6 +59,8 @@
                       RangeSize="-1" DataControl="LeaveReport"
                       BeanClass="view.nishat.net.CustomDataControl.LeaveBalanceRec"
                       id="recordListIterator" Refresh="always"/>
+    <iterator Binds="VO_PARTTIMES4" RangeSize="25"
+              DataControl="HubModuleDataControl" id="VO_PARTTIMES4Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="VO_Attendance2Iterator" id="VO_Attendance2">
@@ -272,16 +274,6 @@
         <Item Value="EmpId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="VO_PARTTIMES3Iterator" id="CalculatedLeaves">
-      <AttrNames>
-        <Item Value="CalculatedLeaves"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="VO_PARTTIMES3Iterator" id="FinalMissed">
-      <AttrNames>
-        <Item Value="FinalMissed"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="VO_PARTTIMES3Iterator" id="Day">
       <AttrNames>
         <Item Value="Day"/>
@@ -304,5 +296,15 @@
         <pages/>
       </pivotTableDataMap>
     </pivotTable>
+    <attributeValues IterBinding="VO_PARTTIMES4Iterator" id="FinalMissed1">
+      <AttrNames>
+        <Item Value="FinalMissed"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="VO_PARTTIMES4Iterator" id="CalculatedLeaves1">
+      <AttrNames>
+        <Item Value="CalculatedLeaves"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -1023,19 +1023,19 @@ public class CommonUtil {
       }
       else
       {
-//        if (currMonth<7)
-//        {
+        if (currMonth<7)
+        {
             where =
                 "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() + "' and " +
                 "leave_date between to_date('"+startDate+"','dd/mm/yyyy') and " +
                 "to_date('"+endDate+"','dd/mm/yyyy')";
-//        }
-//        else 
-//        {
-//            where =
-//                "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-//               "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
-//        }
+        }
+        else 
+        {
+            where =
+                "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
+               "' and leave_date >= to_date('"+endDate+"','dd/mm/yyyy')";
+        }
       }
       CommonUtil.log("availed leaves query "+where);
       voConsumedLeaves.setWhereClause(where);
@@ -1098,7 +1098,7 @@ public class CommonUtil {
       CommonUtil.resetWhereClause(voLeaveBalance);
 
       String whereClause =
-          "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and year = 2016";
+          "user_id = '" + CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and year = 2017";
       
       CommonUtil.log(whereClause);
       voLeaveBalance.setWhereClause(whereClause);

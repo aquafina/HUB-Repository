@@ -32,8 +32,7 @@ import oracle.jbo.server.ViewObjectImpl;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class HubModuleImpl extends ApplicationModuleImpl
-  implements HubModule
+public class HubModuleImpl extends ApplicationModuleImpl implements HubModule
 {
     /**
      * This is the default constructor (do not remove).
@@ -1016,21 +1015,6 @@ public class HubModuleImpl extends ApplicationModuleImpl
         return (VO_AttendanceImpl)findViewObject("VO_Attendance5");
     }
 
-    /**
-     * Container's getter for VO_PARTTIMES3.
-     * @return VO_PARTTIMES3
-     */
-    public ViewObjectImpl getVO_PARTTIMES3() {
-        return (ViewObjectImpl)findViewObject("VO_PARTTIMES3");
-    }
-
-    /**
-     * Container's getter for VL_PART_TIMES_ATD.
-     * @return VL_PART_TIMES_ATD
-     */
-    public ViewLinkImpl getVL_PART_TIMES_ATD() {
-        return (ViewLinkImpl)findViewLink("VL_PART_TIMES_ATD");
-    }
 
     /**
      * Container's getter for VO_AttendanceHR9.
@@ -1204,4 +1188,20 @@ public class HubModuleImpl extends ApplicationModuleImpl
   {
     return (VO_AdminConsumedLeavesImpl) findViewObject("VO_AdminConsumedLeaves1");
   }
+
+    /**
+     * Container's getter for VO_PARTTIMES4.
+     * @return VO_PARTTIMES4
+     */
+    public ViewObjectImpl getVO_PARTTIMES4() {
+        return (ViewObjectImpl)findViewObject("VO_PARTTIMES4");
+    }
+
+    /**
+     * Container's getter for VL_PART_TIMES_ATD1_1.
+     * @return VL_PART_TIMES_ATD1_1
+     */
+    public ViewLinkImpl getVL_PART_TIMES_ATD1_1() {
+        return (ViewLinkImpl)findViewLink("VL_PART_TIMES_ATD1_1");
+    }
 }

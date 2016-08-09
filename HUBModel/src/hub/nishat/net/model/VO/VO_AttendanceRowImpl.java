@@ -31,8 +31,7 @@ import view.nishat.net.Helper.CommonUtil;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class VO_AttendanceRowImpl extends ViewRowImpl
-{
+public class VO_AttendanceRowImpl extends ViewRowImpl {
 
 
   public String ramadanStartDateStr = "07-06-2016";
@@ -41,684 +40,528 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
      * AttributesEnum: generated enum for identifying attributes and accessors. DO NOT MODIFY.
      */
     public enum AttributesEnum {
-    EmpAtdId
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEmpAtdId();
-      }
+        EmpAtdId {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEmpAtdId();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEmpAtdId((Number)value);
-      }
-    }
-    ,
-    Description
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getDescription();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEmpAtdId((Number)value);
+            }
+        }
+        ,
+        Description {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getDescription();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setDescription((String)value);
-      }
-    }
-    ,
-    EmpId
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEmpId();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setDescription((String)value);
+            }
+        }
+        ,
+        EmpId {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEmpId();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEmpId((Number)value);
-      }
-    }
-    ,
-    EmpName
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEmpName();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEmpId((Number)value);
+            }
+        }
+        ,
+        EmpName {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEmpName();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEmpName((String)value);
-      }
-    }
-    ,
-    CardNum
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getCardNum();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEmpName((String)value);
+            }
+        }
+        ,
+        CardNum {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getCardNum();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setCardNum((String)value);
-      }
-    }
-    ,
-    LeaveCancelled
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLeaveCancelled();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setCardNum((String)value);
+            }
+        }
+        ,
+        LeaveCancelled {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLeaveCancelled();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLeaveCancelled((String)value);
-      }
-    }
-    ,
-    ExpectedWorkHours
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getExpectedWorkHours();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLeaveCancelled((String)value);
+            }
+        }
+        ,
+        ExpectedWorkHours {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getExpectedWorkHours();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setExpectedWorkHours((String)value);
-      }
-    }
-    ,
-    MinInTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getMinInTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setExpectedWorkHours((String)value);
+            }
+        }
+        ,
+        MinInTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getMinInTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setMinInTime((Date)value);
-      }
-    }
-    ,
-    MaxOutTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getMaxOutTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setMinInTime((Date)value);
+            }
+        }
+        ,
+        MaxOutTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getMaxOutTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setMaxOutTime((Date)value);
-      }
-    }
-    ,
-    PreviousDayOutTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getPreviousDayOutTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setMaxOutTime((Date)value);
+            }
+        }
+        ,
+        PreviousDayOutTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getPreviousDayOutTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setPreviousDayOutTime((String)value);
-      }
-    }
-    ,
-    PreviousDayEffectiveHours
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getPreviousDayEffectiveHours();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setPreviousDayOutTime((String)value);
+            }
+        }
+        ,
+        PreviousDayEffectiveHours {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getPreviousDayEffectiveHours();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setPreviousDayEffectiveHours((String)value);
-      }
-    }
-    ,
-    Outtime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getOuttime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setPreviousDayEffectiveHours((String)value);
+            }
+        }
+        ,
+        Outtime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getOuttime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setOuttime((String)value);
-      }
-    }
-    ,
-    Intime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getIntime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setOuttime((String)value);
+            }
+        }
+        ,
+        Intime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getIntime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setIntime((String)value);
-      }
-    }
-    ,
-    EffectiveWorkedHours
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEffectiveWorkedHours();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setIntime((String)value);
+            }
+        }
+        ,
+        EffectiveWorkedHours {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEffectiveWorkedHours();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEffectiveWorkedHours((String)value);
-      }
-    }
-    ,
-    Total
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getTotal();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEffectiveWorkedHours((String)value);
+            }
+        }
+        ,
+        Total {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getTotal();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setTotal((String)value);
-      }
-    }
-    ,
-    MaxStartTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getMaxStartTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setTotal((String)value);
+            }
+        }
+        ,
+        MaxStartTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getMaxStartTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setMaxStartTime((String)value);
-      }
-    }
-    ,
-    MaxEndTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getMaxEndTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setMaxStartTime((String)value);
+            }
+        }
+        ,
+        MaxEndTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getMaxEndTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setMaxEndTime((String)value);
-      }
-    }
-    ,
-    EndTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEndTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setMaxEndTime((String)value);
+            }
+        }
+        ,
+        EndTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEndTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEndTime((String)value);
-      }
-    }
-    ,
-    StartTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getStartTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEndTime((String)value);
+            }
+        }
+        ,
+        StartTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getStartTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setStartTime((String)value);
-      }
-    }
-    ,
-    AttendanceDate
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getAttendanceDate();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setStartTime((String)value);
+            }
+        }
+        ,
+        AttendanceDate {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getAttendanceDate();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setAttendanceDate((Date)value);
-      }
-    }
-    ,
-    LeaveTypeId
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLeaveTypeId();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setAttendanceDate((Date)value);
+            }
+        }
+        ,
+        LeaveTypeId {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLeaveTypeId();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLeaveTypeId((Number)value);
-      }
-    }
-    ,
-    LeaveApprovedFlag
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLeaveApprovedFlag();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLeaveTypeId((Number)value);
+            }
+        }
+        ,
+        LeaveApprovedFlag {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLeaveApprovedFlag();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLeaveApprovedFlag((String)value);
-      }
-    }
-    ,
-    TypeOfLeave
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getTypeOfLeave();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLeaveApprovedFlag((String)value);
+            }
+        }
+        ,
+        TypeOfLeave {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getTypeOfLeave();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setTypeOfLeave((Number)value);
-      }
-    }
-    ,
-    PolicyException
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getPolicyException();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setTypeOfLeave((Number)value);
+            }
+        }
+        ,
+        PolicyException {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getPolicyException();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setPolicyException((String)value);
-      }
-    }
-    ,
-    LeaveToday
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLeaveToday();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setPolicyException((String)value);
+            }
+        }
+        ,
+        LeaveToday {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLeaveToday();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLeaveToday((String)value);
-      }
-    }
-    ,
-    IsHalf
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getIsHalf();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLeaveToday((String)value);
+            }
+        }
+        ,
+        IsHalf {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getIsHalf();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setIsHalf((String)value);
-      }
-    }
-    ,
-    WorkingTime
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getWorkingTime();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setIsHalf((String)value);
+            }
+        }
+        ,
+        WorkingTime {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getWorkingTime();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setWorkingTime((String)value);
-      }
-    }
-    ,
-    LeaveType
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLeaveType();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setWorkingTime((String)value);
+            }
+        }
+        ,
+        LeaveType {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLeaveType();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLeaveType((String)value);
-      }
-    }
-    ,
-    PolicyExceptionApprovedFlag
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getPolicyExceptionApprovedFlag();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLeaveType((String)value);
+            }
+        }
+        ,
+        PolicyExceptionApprovedFlag {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getPolicyExceptionApprovedFlag();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setPolicyExceptionApprovedFlag((String)value);
-      }
-    }
-    ,
-    LateSittingMinTiming
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLateSittingMinTiming();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setPolicyExceptionApprovedFlag((String)value);
+            }
+        }
+        ,
+        LateSittingMinTiming {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLateSittingMinTiming();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLateSittingMinTiming((String)value);
-      }
-    }
-    ,
-    Day
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getDay();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLateSittingMinTiming((String)value);
+            }
+        }
+        ,
+        Day {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getDay();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setDay((String)value);
-      }
-    }
-    ,
-    Today
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getToday();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setDay((String)value);
+            }
+        }
+        ,
+        Today {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getToday();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setToday((String)value);
-      }
-    }
-    ,
-    Month
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getMonth();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setToday((String)value);
+            }
+        }
+        ,
+        Month {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getMonth();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setMonth((String)value);
-      }
-    }
-    ,
-    MonthNumber
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getMonthNumber();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setMonth((String)value);
+            }
+        }
+        ,
+        MonthNumber {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getMonthNumber();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setMonthNumber((Number)value);
-      }
-    }
-    ,
-    Year
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getYear();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setMonthNumber((Number)value);
+            }
+        }
+        ,
+        Year {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getYear();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setYear((String)value);
-      }
-    }
-    ,
-    OffDayWorking
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getOffDayWorking();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setYear((String)value);
+            }
+        }
+        ,
+        OffDayWorking {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getOffDayWorking();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setOffDayWorking((String)value);
-      }
-    }
-    ,
-    EmpType
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEmpType();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setOffDayWorking((String)value);
+            }
+        }
+        ,
+        EmpType {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEmpType();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEmpType((Number)value);
-      }
-    }
-    ,
-    LateIn
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getLateIn();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEmpType((Number)value);
+            }
+        }
+        ,
+        LateIn {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getLateIn();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setLateIn((String)value);
-      }
-    }
-    ,
-    EarlyOut
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getEarlyOut();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setLateIn((String)value);
+            }
+        }
+        ,
+        EarlyOut {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getEarlyOut();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setEarlyOut((String)value);
-      }
-    }
-    ,
-    DayStatus
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getDayStatus();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setEarlyOut((String)value);
+            }
+        }
+        ,
+        DayStatus {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getDayStatus();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setDayStatus((String)value);
-      }
-    }
-    ,
-    Sysdate
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getSysdate();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setDayStatus((String)value);
+            }
+        }
+        ,
+        Sysdate {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getSysdate();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setSysdate((String)value);
-      }
-    }
-    ,
-    off_day_working_bool
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getoff_day_working_bool();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setSysdate((String)value);
+            }
+        }
+        ,
+        off_day_working_bool {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getoff_day_working_bool();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setoff_day_working_bool((Boolean)value);
-      }
-    }
-    ,
-    saturdayOrHoliday
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getsaturdayOrHoliday();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setoff_day_working_bool((Boolean)value);
+            }
+        }
+        ,
+        saturdayOrHoliday {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getsaturdayOrHoliday();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setsaturdayOrHoliday((String)value);
-      }
-    }
-    ,
-    isSunday
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getisSunday();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setsaturdayOrHoliday((String)value);
+            }
+        }
+        ,
+        isSunday {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getisSunday();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setisSunday((String)value);
-      }
-    }
-    ,
-    isLeave
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getisLeave();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setisSunday((String)value);
+            }
+        }
+        ,
+        isLeave {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getisLeave();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setisLeave((String)value);
-      }
-    }
-    ,
-    HoursMissing
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getHoursMissing();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setisLeave((String)value);
+            }
+        }
+        ,
+        HoursMissing {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getHoursMissing();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setHoursMissing((String)value);
-      }
-    }
-    ,
-    Comments
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getComments();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setHoursMissing((String)value);
+            }
+        }
+        ,
+        Comments {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getComments();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setComments((String)value);
-      }
-    }
-    ,
-    VO_AttendanceEvents
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getVO_AttendanceEvents();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setComments((String)value);
+            }
+        }
+        ,
+        VO_AttendanceEvents {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getVO_AttendanceEvents();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setAttributeInternal(index(), value);
-      }
-    }
-    ,
-    VO_MISSING_MINUTES
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getVO_MISSING_MINUTES();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        VO_MISSING_MINUTES {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getVO_MISSING_MINUTES();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setAttributeInternal(index(), value);
-      }
-    }
-    ,
-    VO_PARTTIMES
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getVO_PARTTIMES();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        VO_PARTTIMES1 {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getVO_PARTTIMES1();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setAttributeInternal(index(), value);
-      }
-    }
-    ,
-    VO_Months1
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getVO_Months1();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        VO_Months1 {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getVO_Months1();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setAttributeInternal(index(), value);
-      }
-    }
-    ,
-    VO_Years1
-    {
-      public Object get(VO_AttendanceRowImpl obj)
-      {
-        return obj.getVO_Years1();
-      }
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ,
+        VO_Years1 {
+            public Object get(VO_AttendanceRowImpl obj) {
+                return obj.getVO_Years1();
+            }
 
-      public void put(VO_AttendanceRowImpl obj, Object value)
-      {
-        obj.setAttributeInternal(index(), value);
-      }
-    }
-    ;
-    private static AttributesEnum[] vals = null;
-    private static final int firstIndex = 0;
+            public void put(VO_AttendanceRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
+        ;
+        private static AttributesEnum[] vals = null;
+        private static final int firstIndex = 0;
 
         public abstract Object get(VO_AttendanceRowImpl object);
 
@@ -746,62 +589,62 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
     }
 
 
-  public static final int EMPATDID = AttributesEnum.EmpAtdId.index();
-  public static final int DESCRIPTION = AttributesEnum.Description.index();
-  public static final int EMPID = AttributesEnum.EmpId.index();
-  public static final int EMPNAME = AttributesEnum.EmpName.index();
-  public static final int CARDNUM = AttributesEnum.CardNum.index();
-  public static final int LEAVECANCELLED = AttributesEnum.LeaveCancelled.index();
-  public static final int EXPECTEDWORKHOURS = AttributesEnum.ExpectedWorkHours.index();
-  public static final int MININTIME = AttributesEnum.MinInTime.index();
-  public static final int MAXOUTTIME = AttributesEnum.MaxOutTime.index();
-  public static final int PREVIOUSDAYOUTTIME = AttributesEnum.PreviousDayOutTime.index();
-  public static final int PREVIOUSDAYEFFECTIVEHOURS = AttributesEnum.PreviousDayEffectiveHours.index();
-  public static final int OUTTIME = AttributesEnum.Outtime.index();
-  public static final int INTIME = AttributesEnum.Intime.index();
-  public static final int EFFECTIVEWORKEDHOURS = AttributesEnum.EffectiveWorkedHours.index();
-  public static final int TOTAL = AttributesEnum.Total.index();
-  public static final int MAXSTARTTIME = AttributesEnum.MaxStartTime.index();
-  public static final int MAXENDTIME = AttributesEnum.MaxEndTime.index();
-  public static final int ENDTIME = AttributesEnum.EndTime.index();
-  public static final int STARTTIME = AttributesEnum.StartTime.index();
-  public static final int ATTENDANCEDATE = AttributesEnum.AttendanceDate.index();
-  public static final int LEAVETYPEID = AttributesEnum.LeaveTypeId.index();
-  public static final int LEAVEAPPROVEDFLAG = AttributesEnum.LeaveApprovedFlag.index();
-  public static final int TYPEOFLEAVE = AttributesEnum.TypeOfLeave.index();
-  public static final int POLICYEXCEPTION = AttributesEnum.PolicyException.index();
-  public static final int LEAVETODAY = AttributesEnum.LeaveToday.index();
-  public static final int ISHALF = AttributesEnum.IsHalf.index();
-  public static final int WORKINGTIME = AttributesEnum.WorkingTime.index();
-  public static final int LEAVETYPE = AttributesEnum.LeaveType.index();
-  public static final int POLICYEXCEPTIONAPPROVEDFLAG = AttributesEnum.PolicyExceptionApprovedFlag.index();
-  public static final int LATESITTINGMINTIMING = AttributesEnum.LateSittingMinTiming.index();
-  public static final int DAY = AttributesEnum.Day.index();
-  public static final int TODAY = AttributesEnum.Today.index();
-  public static final int MONTH = AttributesEnum.Month.index();
-  public static final int MONTHNUMBER = AttributesEnum.MonthNumber.index();
-  public static final int YEAR = AttributesEnum.Year.index();
-  public static final int OFFDAYWORKING = AttributesEnum.OffDayWorking.index();
-  public static final int EMPTYPE = AttributesEnum.EmpType.index();
-  public static final int LATEIN = AttributesEnum.LateIn.index();
-  public static final int EARLYOUT = AttributesEnum.EarlyOut.index();
-  public static final int DAYSTATUS = AttributesEnum.DayStatus.index();
-  public static final int SYSDATE = AttributesEnum.Sysdate.index();
-  public static final int OFF_DAY_WORKING_BOOL = AttributesEnum.off_day_working_bool.index();
-  public static final int SATURDAYORHOLIDAY = AttributesEnum.saturdayOrHoliday.index();
-  public static final int ISSUNDAY = AttributesEnum.isSunday.index();
-  public static final int ISLEAVE = AttributesEnum.isLeave.index();
-  public static final int HOURSMISSING = AttributesEnum.HoursMissing.index();
-  public static final int COMMENTS = AttributesEnum.Comments.index();
-  public static final int VO_ATTENDANCEEVENTS = AttributesEnum.VO_AttendanceEvents.index();
-  public static final int VO_MISSING_MINUTES = AttributesEnum.VO_MISSING_MINUTES.index();
-  public static final int VO_PARTTIMES = AttributesEnum.VO_PARTTIMES.index();
-  public static final int VO_MONTHS1 = AttributesEnum.VO_Months1.index();
-  public static final int VO_YEARS1 = AttributesEnum.VO_Years1.index();
+    public static final int EMPATDID = AttributesEnum.EmpAtdId.index();
+    public static final int DESCRIPTION = AttributesEnum.Description.index();
+    public static final int EMPID = AttributesEnum.EmpId.index();
+    public static final int EMPNAME = AttributesEnum.EmpName.index();
+    public static final int CARDNUM = AttributesEnum.CardNum.index();
+    public static final int LEAVECANCELLED = AttributesEnum.LeaveCancelled.index();
+    public static final int EXPECTEDWORKHOURS = AttributesEnum.ExpectedWorkHours.index();
+    public static final int MININTIME = AttributesEnum.MinInTime.index();
+    public static final int MAXOUTTIME = AttributesEnum.MaxOutTime.index();
+    public static final int PREVIOUSDAYOUTTIME = AttributesEnum.PreviousDayOutTime.index();
+    public static final int PREVIOUSDAYEFFECTIVEHOURS = AttributesEnum.PreviousDayEffectiveHours.index();
+    public static final int OUTTIME = AttributesEnum.Outtime.index();
+    public static final int INTIME = AttributesEnum.Intime.index();
+    public static final int EFFECTIVEWORKEDHOURS = AttributesEnum.EffectiveWorkedHours.index();
+    public static final int TOTAL = AttributesEnum.Total.index();
+    public static final int MAXSTARTTIME = AttributesEnum.MaxStartTime.index();
+    public static final int MAXENDTIME = AttributesEnum.MaxEndTime.index();
+    public static final int ENDTIME = AttributesEnum.EndTime.index();
+    public static final int STARTTIME = AttributesEnum.StartTime.index();
+    public static final int ATTENDANCEDATE = AttributesEnum.AttendanceDate.index();
+    public static final int LEAVETYPEID = AttributesEnum.LeaveTypeId.index();
+    public static final int LEAVEAPPROVEDFLAG = AttributesEnum.LeaveApprovedFlag.index();
+    public static final int TYPEOFLEAVE = AttributesEnum.TypeOfLeave.index();
+    public static final int POLICYEXCEPTION = AttributesEnum.PolicyException.index();
+    public static final int LEAVETODAY = AttributesEnum.LeaveToday.index();
+    public static final int ISHALF = AttributesEnum.IsHalf.index();
+    public static final int WORKINGTIME = AttributesEnum.WorkingTime.index();
+    public static final int LEAVETYPE = AttributesEnum.LeaveType.index();
+    public static final int POLICYEXCEPTIONAPPROVEDFLAG = AttributesEnum.PolicyExceptionApprovedFlag.index();
+    public static final int LATESITTINGMINTIMING = AttributesEnum.LateSittingMinTiming.index();
+    public static final int DAY = AttributesEnum.Day.index();
+    public static final int TODAY = AttributesEnum.Today.index();
+    public static final int MONTH = AttributesEnum.Month.index();
+    public static final int MONTHNUMBER = AttributesEnum.MonthNumber.index();
+    public static final int YEAR = AttributesEnum.Year.index();
+    public static final int OFFDAYWORKING = AttributesEnum.OffDayWorking.index();
+    public static final int EMPTYPE = AttributesEnum.EmpType.index();
+    public static final int LATEIN = AttributesEnum.LateIn.index();
+    public static final int EARLYOUT = AttributesEnum.EarlyOut.index();
+    public static final int DAYSTATUS = AttributesEnum.DayStatus.index();
+    public static final int SYSDATE = AttributesEnum.Sysdate.index();
+    public static final int OFF_DAY_WORKING_BOOL = AttributesEnum.off_day_working_bool.index();
+    public static final int SATURDAYORHOLIDAY = AttributesEnum.saturdayOrHoliday.index();
+    public static final int ISSUNDAY = AttributesEnum.isSunday.index();
+    public static final int ISLEAVE = AttributesEnum.isLeave.index();
+    public static final int HOURSMISSING = AttributesEnum.HoursMissing.index();
+    public static final int COMMENTS = AttributesEnum.Comments.index();
+    public static final int VO_ATTENDANCEEVENTS = AttributesEnum.VO_AttendanceEvents.index();
+    public static final int VO_MISSING_MINUTES = AttributesEnum.VO_MISSING_MINUTES.index();
+    public static final int VO_PARTTIMES1 = AttributesEnum.VO_PARTTIMES1.index();
+    public static final int VO_MONTHS1 = AttributesEnum.VO_Months1.index();
+    public static final int VO_YEARS1 = AttributesEnum.VO_Years1.index();
 
-  /**
-   * This is the default constructor (do not remove).
-   */
+    /**
+     * This is the default constructor (do not remove).
+     */
     public VO_AttendanceRowImpl() {
     }
 
@@ -1748,11 +1591,12 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
         return (RowIterator)getAttributeInternal(VO_MISSING_MINUTES);
     }
 
+
     /**
-     * Gets the associated <code>RowIterator</code> using master-detail link VO_PARTTIMES.
+     * Gets the associated <code>RowIterator</code> using master-detail link VO_PARTTIMES1.
      */
-    public RowIterator getVO_PARTTIMES() {
-        return (RowIterator)getAttributeInternal(VO_PARTTIMES);
+    public RowIterator getVO_PARTTIMES1() {
+        return (RowIterator)getAttributeInternal(VO_PARTTIMES1);
     }
 
     /**
@@ -1941,12 +1785,11 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
      */
     protected Object getAttrInvokeAccessor(int index,
                                            AttributeDefImpl attrDef) throws Exception {
-    if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count()))
-    {
-      return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            return AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].get(this);
+        }
+        return super.getAttrInvokeAccessor(index, attrDef);
     }
-    return super.getAttrInvokeAccessor(index, attrDef);
-  }
 
     /**
      * setAttrInvokeAccessor: generated method. Do not modify.
@@ -1958,11 +1801,10 @@ public class VO_AttendanceRowImpl extends ViewRowImpl
      */
     protected void setAttrInvokeAccessor(int index, Object value,
                                          AttributeDefImpl attrDef) throws Exception {
-    if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count()))
-    {
-      AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
-      return;
+        if ((index >= AttributesEnum.firstIndex()) && (index < AttributesEnum.count())) {
+            AttributesEnum.staticValues()[index - AttributesEnum.firstIndex()].put(this, value);
+            return;
+        }
+        super.setAttrInvokeAccessor(index, value, attrDef);
     }
-    super.setAttrInvokeAccessor(index, value, attrDef);
-  }
 }

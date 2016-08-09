@@ -100,13 +100,13 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
             }
         }
         ,
-        Day {
+        MonthNumber {
             public Object get(VO_PARTTIMESRowImpl obj) {
-                return obj.getDay();
+                return obj.getMonthNumber();
             }
 
             public void put(VO_PARTTIMESRowImpl obj, Object value) {
-                obj.setDay((String)value);
+                obj.setMonthNumber((Number)value);
             }
         }
         ,
@@ -117,6 +117,26 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
 
             public void put(VO_PARTTIMESRowImpl obj, Object value) {
                 obj.setMonth((String)value);
+            }
+        }
+        ,
+        Year {
+            public Object get(VO_PARTTIMESRowImpl obj) {
+                return obj.getYear();
+            }
+
+            public void put(VO_PARTTIMESRowImpl obj, Object value) {
+                obj.setYear((String)value);
+            }
+        }
+        ,
+        TotalMissedHours {
+            public Object get(VO_PARTTIMESRowImpl obj) {
+                return obj.getTotalMissedHours();
+            }
+
+            public void put(VO_PARTTIMESRowImpl obj, Object value) {
+                obj.setTotalMissedHours((Number)value);
             }
         }
         ,
@@ -188,8 +208,10 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
     public static final int TOTAL = AttributesEnum.Total.index();
     public static final int EMPID = AttributesEnum.EmpId.index();
     public static final int EMPTYPE = AttributesEnum.EmpType.index();
-    public static final int DAY = AttributesEnum.Day.index();
+    public static final int MONTHNUMBER = AttributesEnum.MonthNumber.index();
     public static final int MONTH = AttributesEnum.Month.index();
+    public static final int YEAR = AttributesEnum.Year.index();
+    public static final int TOTALMISSEDHOURS = AttributesEnum.TotalMissedHours.index();
     public static final int FINALMISSED = AttributesEnum.FinalMissed.index();
     public static final int CALCULATEDLEAVES = AttributesEnum.CalculatedLeaves.index();
     public static final int TOTALHOURSMISSED = AttributesEnum.TotalHoursMissed.index();
@@ -298,20 +320,21 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
         setAttributeInternal(EMPTYPE, value);
     }
 
+
     /**
-     * Gets the attribute value for the calculated attribute Day.
-     * @return the Day
+     * Gets the attribute value for the calculated attribute MonthNumber.
+     * @return the MonthNumber
      */
-    public String getDay() {
-        return (String) getAttributeInternal(DAY);
+    public Number getMonthNumber() {
+        return (Number) getAttributeInternal(MONTHNUMBER);
     }
 
     /**
-     * Sets <code>value</code> as the attribute value for the calculated attribute Day.
-     * @param value value to set the  Day
+     * Sets <code>value</code> as the attribute value for the calculated attribute MonthNumber.
+     * @param value value to set the  MonthNumber
      */
-    public void setDay(String value) {
-        setAttributeInternal(DAY, value);
+    public void setMonthNumber(Number value) {
+        setAttributeInternal(MONTHNUMBER, value);
     }
 
     /**
@@ -328,6 +351,38 @@ public class VO_PARTTIMESRowImpl extends ViewRowImpl {
      */
     public void setMonth(String value) {
         setAttributeInternal(MONTH, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute Year.
+     * @return the Year
+     */
+    public String getYear() {
+        return (String) getAttributeInternal(YEAR);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute Year.
+     * @param value value to set the  Year
+     */
+    public void setYear(String value) {
+        setAttributeInternal(YEAR, value);
+    }
+
+    /**
+     * Gets the attribute value for the calculated attribute TotalMissedHours.
+     * @return the TotalMissedHours
+     */
+    public Number getTotalMissedHours() {
+        return (Number) getAttributeInternal(TOTALMISSEDHOURS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for the calculated attribute TotalMissedHours.
+     * @param value value to set the  TotalMissedHours
+     */
+    public void setTotalMissedHours(Number value) {
+        setAttributeInternal(TOTALMISSEDHOURS, value);
     }
 
     /**

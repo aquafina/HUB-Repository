@@ -668,8 +668,8 @@ order by Att.ATTENDANCE_DATE asc]]>
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
-    Name="VO_PARTTIMES"
-    ViewLink="hub.nishat.net.model.VO.VL.VL_PART_TIMES_ATD"
+    Name="VO_PARTTIMES1"
+    ViewLink="hub.nishat.net.model.VO.VL.VL_PART_TIMES_ATD1"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
 </ViewObject>

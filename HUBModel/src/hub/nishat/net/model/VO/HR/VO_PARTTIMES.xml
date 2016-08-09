@@ -29,6 +29,7 @@
     from xx_e_portal_emp_missing_mins
     where emp_id  = atd.emp_id 
     and to_char(attendance_Date,'mm') =  to_char(atd.attendance_date,'mm')  
+    and to_char(attendance_Date,'rrrr') =  to_char(atd.attendance_date,'rrrr') 
     and (exception_approved is null or exception_approved = 'N')
 ) total_missed,
 ppf.attribute4 joining_date,
@@ -36,8 +37,12 @@ floor(sum(to_number(to_char(to_date(nvl(atd.effective_worked_hours,'00:00'),'hh2
 ,floor((to_char(last_day(atd.attendance_Date)-6,'dd')*8*60)/60)||':'||mod((to_char(last_day(atd.attendance_Date)-6,'dd')*8*60),60) total
 ,atd.emp_id
 ,users_table.emp_type
-,to_number(to_char(atd.attendance_Date,'mm')) DAY
+,to_number(to_char(atd.attendance_Date,'mm')) MONTH_NUMBER
 ,to_char(atd.attendance_Date,'MON') MONTH
+,to_char(atd.attendance_Date,'rrrr') YEAR
+,(select sum(missing_minutes)/60 
+from xx_e_portal_emp_missing_mins
+where emp_id = atd.emp_id and attendance_date between getPreviousFiscalYearStartDate() and getPreviousFiscalYearEndDate()) Total_Missed_Hours
 from xx_e_portal_emp_atd atd
 ,xx_e_portal_leave_calander cal
 ,per_all_people_F ppf
@@ -60,7 +65,8 @@ atd.emp_id
 ,to_char(atd.attendance_Date,'mm')
 ,to_char(atd.attendance_Date,'MON')
 ,to_char(last_day(atd.attendance_Date)-6,'dd')
-order by to_char(atd.attendance_Date,'mm')]]>
+,to_char(atd.attendance_Date,'rrrr')
+order by to_char(atd.attendance_Date,'rrrr')]]>
   </SQLQuery>
   <ViewAttribute
     Name="TotalMissed"
@@ -152,18 +158,17 @@ order by to_char(atd.attendance_Date,'mm')]]>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="Day"
+    Name="MonthNumber"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="2"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="DAY"
-    Expression="DAY"
-    SQLType="VARCHAR">
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MONTH_NUMBER"
+    Expression="MONTH_NUMBER"
+    SQLType="NUMERIC">
     <DesignTime>
-      <Attr Name="_DisplaySize" Value="2"/>
+      <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
@@ -179,6 +184,35 @@ order by to_char(atd.attendance_Date,'mm')]]>
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Year"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="4"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="YEAR"
+    Expression="YEAR"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TotalMissedHours"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="TOTAL_MISSED_HOURS"
+    Expression="TOTAL_MISSED_HOURS"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute

@@ -16,8 +16,7 @@ import view.nishat.net.Helper.Constants;
 // ---    Custom code may be added to this class.
 // ---    Warning: Do not modify method signatures of generated methods.
 // ---------------------------------------------------------------------
-public class VO_AttendanceImpl extends ViewObjectImpl
-{
+public class VO_AttendanceImpl extends ViewObjectImpl {
     /**
      * This is the default constructor (do not remove).
      */
