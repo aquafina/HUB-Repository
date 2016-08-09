@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 
 import java.sql.ResultSet;
 
+import java.text.ParseException;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -27,9 +29,10 @@ import view.nishat.net.Helper.PolicyHelper;
 import view.nishat.net.PoJo.MonthlyDeductedLeave;
 
 public class AnnualLeaveDetails {
-    final int irregFromMonth = 6;
-    final int irregFromYear = 2015;
-    final int currentYear;
+    final int startMonth;
+    final int endMonth;
+    final int startYear;
+    final int endYear;
     private String connectionString =
         "jdbc:oracle:thin:@192.168.0.31:1522:prod";
     private List<AnnualDeductedLeaveRptBean> list =
@@ -46,9 +49,21 @@ public class AnnualLeaveDetails {
         map.put(5, "Short");
         map.put(6, "30 Mins Late");
         map.put(7, "TRAVEL");
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        currentYear = c.get(Calendar.YEAR);
+        Calendar startCal = Calendar.getInstance();
+        Calendar endCal = Calendar.getInstance();
+        try
+        {
+          startCal.setTime(CommonUtil.getFiscalYearStartDate());
+          endCal.setTime(CommonUtil.getFiscalYearEndDate());
+        }
+        catch (ParseException e)
+        {
+        }
+        startYear = startCal.get(Calendar.YEAR);
+        endYear = endCal.get(Calendar.YEAR);
+        startMonth = startCal.get(Calendar.MONTH)+1;
+        endMonth = endCal.get(Calendar.MONTH)+1;
+        CommonUtil.log("start year = "+startYear+" \nendYear = "+endYear+" \nstartMonth = "+startMonth+" \nendMonth = "+endMonth);
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
@@ -70,25 +85,26 @@ public class AnnualLeaveDetails {
 //            list.add(mb);
 //        }
         
+        
        //http://fmw.nishat.net:7003/TheHUB/faces/login_page.jspx
-        for (int year = irregFromYear;year <= currentYear; year++) 
+        for (int year = startYear;year <= endYear; year++) 
         {
-            Date currentDate = new Date();
-            int totalMonths = 0;
-            if (year < currentYear)
-            {
-                totalMonths = 11;
-            }
-            else 
-            {
-                totalMonths = currentDate.getMonth();
-            }
-            int month=1;
-            if (year == 2015) 
-            {
-                month = 7;
-            }
-            try {
+          Date currentDate = new Date();
+          int totalMonths = 0;
+          if (year < endYear)
+          {
+              totalMonths = 11;
+          }
+          else 
+          {
+              totalMonths = currentDate.getMonth();
+          }
+          int month=startMonth;
+//          if (year == 2015) 
+//          {
+//              month = 7;
+//          }
+          try {
         for (;month<=totalMonths+1;month++)
         {
             String postingMonth = CommonUtil.getMonthString(month);
@@ -138,7 +154,7 @@ DriverManager.getConnection(connectionString, "xx_e_portal", "mskiz145");
             ps =
  conn.prepareStatement("select * from XX_E_PORTAL_CONSUMED_LEAVES where user_id = '" +
                        CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-                       "' and to_char(leave_date,'YYYY') = '"+year+"' ORDER BY LEAVE_DATE ASC"  );
+                       "' and to_char(leave_date,'mm/dd/yyyy') > '"+CommonUtil.convertFromJAVADateToSQLDate(CommonUtil.getFiscalYearStartDate())+"' ORDER BY LEAVE_DATE ASC");
             rs = ps.executeQuery();
             while (rs.next()) {
                 AnnualDeductedLeaveRptBean mb = new AnnualDeductedLeaveRptBean();
