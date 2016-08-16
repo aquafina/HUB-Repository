@@ -9,8 +9,6 @@ import java.sql.PreparedStatement;
 
 import java.sql.ResultSet;
 
-import java.text.ParseException;
-
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,10 +27,9 @@ import view.nishat.net.Helper.PolicyHelper;
 import view.nishat.net.PoJo.MonthlyDeductedLeave;
 
 public class AnnualLeaveDetails {
-    final int startMonth;
-    final int endMonth;
-    final int startYear;
-    final int endYear;
+    final int irregFromMonth = 6;
+    final int irregFromYear = 2015;
+    final int currentYear;
     private String connectionString =
         "jdbc:oracle:thin:@192.168.0.31:1522:prod";
     private List<AnnualDeductedLeaveRptBean> list =
@@ -49,95 +46,79 @@ public class AnnualLeaveDetails {
         map.put(5, "Short");
         map.put(6, "30 Mins Late");
         map.put(7, "TRAVEL");
-        Calendar startCal = Calendar.getInstance();
-        Calendar endCal = Calendar.getInstance();
-        try {
-            startCal.setTime(CommonUtil.getFiscalYearStartDate());
-            endCal.setTime(CommonUtil.getFiscalYearEndDate());
-        } catch (ParseException e) {
-        }
-        startYear = startCal.get(Calendar.YEAR);
-        endYear = endCal.get(Calendar.YEAR);
-        startMonth = startCal.get(Calendar.MONTH) + 1;
-        endMonth = endCal.get(Calendar.MONTH) + 1;
-        CommonUtil.log("start year = " + startYear + " \nendYear = " +
-                       endYear + " \nstartMonth = " + startMonth +
-                       " \nendMonth = " + endMonth);
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        currentYear = c.get(Calendar.YEAR);
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        //        List<MonthlyDeductedLeave> leavesPreviousMonth =
-        //            ph.getMonthlyLeaves("08-2015",
-        //                                (HubModuleImpl)CommonUtil.getAppModule());
-        //        CommonUtil.log("Annual Leave Details.java: "+"08-2015");
-        //
-        //        for (MonthlyDeductedLeave m : leavesPreviousMonth) {
-        //            AnnualDeductedLeaveRptBean mb = new AnnualDeductedLeaveRptBean();
-        //            mb.setJobStatus(m.getJobStatus());
-        //            mb.setLeaveCause(m.getLeaveCause());
-        //            mb.setLeaveDate(m.getLeaveDate());
-        //            mb.setLeaveID(m.getLeaveID());
-        //            mb.setLeaveType(m.getLeaveType());
-        //            mb.setUserID(m.getUserID());
-        //            mb.setLeaveTypeStr(map.get(m.getLeaveType()));
-        //            mb.setStatus("In Process");
-        //            list.add(mb);
-        //        }
-
-
-        //http://fmw.nishat.net:7003/TheHUB/faces/login_page.jspx
-        for (int year = startYear; year <= endYear; year++) {
+//        List<MonthlyDeductedLeave> leavesPreviousMonth =
+//            ph.getMonthlyLeaves("08-2015",
+//                                (HubModuleImpl)CommonUtil.getAppModule());
+//        CommonUtil.log("Annual Leave Details.java: "+"08-2015");
+//        
+//        for (MonthlyDeductedLeave m : leavesPreviousMonth) {
+//            AnnualDeductedLeaveRptBean mb = new AnnualDeductedLeaveRptBean();
+//            mb.setJobStatus(m.getJobStatus());
+//            mb.setLeaveCause(m.getLeaveCause());
+//            mb.setLeaveDate(m.getLeaveDate());
+//            mb.setLeaveID(m.getLeaveID());
+//            mb.setLeaveType(m.getLeaveType());
+//            mb.setUserID(m.getUserID());
+//            mb.setLeaveTypeStr(map.get(m.getLeaveType()));
+//            mb.setStatus("In Process");
+//            list.add(mb);
+//        }
+        
+       //http://fmw.nishat.net:7003/TheHUB/faces/login_page.jspx
+        for (int year = irregFromYear;year <= currentYear; year++) 
+        {
             Date currentDate = new Date();
             int totalMonths = 0;
-            if (year < endYear) {
+            if (year < currentYear)
+            {
                 totalMonths = 11;
-            } else {
+            }
+            else 
+            {
                 totalMonths = currentDate.getMonth();
             }
-            int month = startMonth;
-            //          if (year == 2015)
-            //          {
-            //              month = 7;
-            //          }
+            int month=1;
+            if (year == 2015) 
+            {
+                month = 7;
+            }
             try {
-                for (; month <= totalMonths + 1; month++) {
-                    String postingMonth = CommonUtil.getMonthString(month);
-                    String monthStr = "";
-                    if (month <= 9)
-                        monthStr = "0" + month;
-                    else
-                        monthStr = month + "";
-                    String leaveDate;
-                    leaveDate = monthStr + "-" + year;
-                    Class.forName("oracle.jdbc.driver.OracleDriver");
-                    conn =
-DriverManager.getConnection(connectionString, "xx_e_portal", "mskiz145");
-                    ps =
- conn.prepareStatement("select * from XX_E_PORTAL_ATD_POSTING where user_id = '" +
-                       CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-                       "' and POSTING_MONTH='" + postingMonth +
-                       "' and POSTING_YEAR=" + year);
-                    String whereClause =
-                        "select * from XX_E_PORTAL_ATD_POSTING where user_id = '" +
-                        CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-                        "' and POSTING_MONTH='" + postingMonth +
-                        "' and POSTING_YEAR=" + year;
-                    //System.out.println("whereClause "+whereClause);
-                    rs = ps.executeQuery();
-                    if (rs.next()) {
-                        System.out.println("Posting data found for " +
-                                           postingMonth + "-" + year);
-                    } else {
-                        System.out.println("Posting data not found for " +
-                                           postingMonth + "-" + year);
-                        List<MonthlyDeductedLeave> leavesPreviousMonth2 =
+        for (;month<=totalMonths+1;month++)
+        {
+            String postingMonth = CommonUtil.getMonthString(month);
+            String monthStr = "";
+            if (month<=9) monthStr="0"+month;
+            else monthStr=month+"";
+            String leaveDate;
+            leaveDate= monthStr+"-"+year;
+                Class.forName("oracle.jdbc.driver.OracleDriver");
+                conn =
+            DriverManager.getConnection(connectionString, "xx_e_portal", "mskiz145");
+                ps =
+            conn.prepareStatement("select * from XX_E_PORTAL_ATD_POSTING where user_id = '" +
+                           CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and POSTING_MONTH='"+postingMonth+"' and POSTING_YEAR="+year);
+                String whereClause = "select * from XX_E_PORTAL_ATD_POSTING where user_id = '" +
+                           CommonUtil.getSessionValue(Constants.SESSION_USERID).toString()+"' and POSTING_MONTH='"+postingMonth+"' and POSTING_YEAR="+year;
+                //System.out.println("whereClause "+whereClause);
+                rs = ps.executeQuery();
+                if (rs.next()) {
+                    System.out.println("Posting data found for "+postingMonth+"-"+year);
+                }
+                else {
+                    System.out.println("Posting data not found for "+postingMonth+"-"+year);
+                    List<MonthlyDeductedLeave> leavesPreviousMonth2 =
                             ph.getMonthlyLeaves(leaveDate,
                                                 (HubModuleImpl)CommonUtil.getAppModule());
-                        CommonUtil.log("leaveDate = " + leaveDate);
-
+                    CommonUtil.log("leaveDate = "+ leaveDate);
+                        
                         for (MonthlyDeductedLeave m : leavesPreviousMonth2) {
-                            AnnualDeductedLeaveRptBean mb =
-                                new AnnualDeductedLeaveRptBean();
+                            AnnualDeductedLeaveRptBean mb = new AnnualDeductedLeaveRptBean();
                             mb.setJobStatus(m.getJobStatus());
                             mb.setLeaveCause(m.getLeaveCause());
                             mb.setLeaveDate(m.getLeaveDate());
@@ -148,52 +129,41 @@ DriverManager.getConnection(connectionString, "xx_e_portal", "mskiz145");
                             mb.setStatus("In Process");
                             list.add(mb);
                         }
-                    }
-                }
-
-                Class.forName("oracle.jdbc.driver.OracleDriver");
-                conn =
-DriverManager.getConnection(connectionString, "xx_e_portal", "mskiz145");
-                ps =
- conn.prepareStatement("select * from XX_E_PORTAL_CONSUMED_LEAVES where user_id = '" +
-                       CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
-                       "' and to_char(leave_date,'yyyy-mm-dd') > '" +
-                       CommonUtil.convertFromJAVADateToSQLDate(CommonUtil.getFiscalYearStartDate()) +
-                       "' ORDER BY LEAVE_DATE ASC",
-                       ResultSet.TYPE_SCROLL_INSENSITIVE,
-                       ResultSet.CONCUR_UPDATABLE);
-                rs = ps.executeQuery();
-                rs.last();
-                System.out.println("################################################" +
-                                   rs.getRow());
-                rs.beforeFirst();
-                int i = 0;
-                list.clear();
-                while (rs.next()) {
-                    CommonUtil.log("iteration number = " + (++i));
-                    AnnualDeductedLeaveRptBean mb =
-                        new AnnualDeductedLeaveRptBean();
-                    mb.setJobStatus(rs.getString("JOB_STATUS"));
-                    mb.setLeaveCause(rs.getInt("CAUSE"));
-                    mb.setLeaveDate(rs.getDate("LEAVE_DATE"));
-                    mb.setLeaveID(rs.getInt("CONSUMED_LEAVES_ID") + "");
-                    mb.setLeaveType(rs.getInt("LEAVE_TYPE"));
-                    mb.setUserID(rs.getInt("USER_ID"));
-                    mb.setStatus("Processed");
-                    mb.setLeaveTypeStr(map.get(rs.getInt("LEAVE_TYPE")));
-                    list.add(mb);
-                }
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            } finally {
-                try {
-                    rs.close();
-                    ps.close();
-                    conn.close();
-                } catch (Exception ex) {
-
                 }
             }
+           
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            conn =
+DriverManager.getConnection(connectionString, "xx_e_portal", "mskiz145");
+            ps =
+ conn.prepareStatement("select * from XX_E_PORTAL_CONSUMED_LEAVES where user_id = '" +
+                       CommonUtil.getSessionValue(Constants.SESSION_USERID).toString() +
+                       "' and to_char(leave_date,'YYYY') = '"+year+"' ORDER BY LEAVE_DATE ASC"  );
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                AnnualDeductedLeaveRptBean mb = new AnnualDeductedLeaveRptBean();
+                mb.setJobStatus(rs.getString("JOB_STATUS"));
+                mb.setLeaveCause(rs.getInt("CAUSE"));
+                mb.setLeaveDate(rs.getDate("LEAVE_DATE"));
+                mb.setLeaveID(rs.getInt("CONSUMED_LEAVES_ID")+"");
+                mb.setLeaveType(rs.getInt("LEAVE_TYPE"));
+                mb.setUserID(rs.getInt("USER_ID"));
+                mb.setStatus("Processed");
+                mb.setLeaveTypeStr(map.get(rs.getInt("LEAVE_TYPE")));
+                list.add(mb);
+            }
+        }
+            catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                rs.close();
+                ps.close();
+                conn.close();
+            } catch (Exception ex) {
+
+            }
+        }
         }
     }
 

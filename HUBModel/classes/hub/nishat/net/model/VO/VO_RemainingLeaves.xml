@@ -29,12 +29,18 @@
     Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[select 
-15-count(epcl.leave_date) leaves_remaining 
+epelb.TOTAL_LEAVES - count(epcl.leave_date) leaves_remaining 
 from xx_e_portal_consumed_leaves  epcl 
-       ,xx_e_portal_leave_types eplt
-where epcl.user_id = :user_id
-          and epcl.leave_type = :leave_type
-          and epcl.leave_type = eplt.leave_type_id]]>
+      , xx_e_portal_emp_leave_balance epelb
+      ,xx_e_portal_leave_types eplt
+where epelb.user_id = :user_id
+          and epelb.leave_type_id = :leave_type
+           and epelb.year = to_char(getFiscalYearEndDate(),'rrrr')
+          and epcl.leave_type(+) = epelb.leave_type_id
+          and epcl.user_id(+) =  epelb.user_id
+          and epelb.leave_type_id=eplt.leave_type_id
+          and epelb.year = to_char(epcl.leave_date(+),'rrrr')--added on 8/15/2016
+group by epelb.TOTAL_LEAVES]]>
   </SQLQuery>
   <ViewAttribute
     Name="LeavesRemaining"

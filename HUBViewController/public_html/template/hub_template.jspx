@@ -79,7 +79,7 @@
                 </af:dialog>
               </af:popup>
               <af:goButton text="All Employee" id="goButton3"
-                           destination="http://fmw.nishat.net:7003/TheHUB/faces/att_handle_NCEntertainment.jspx"
+                           destination="/faces/att_handle_NCEntertainment.jspx"
                            rendered="#{sessionScope.userid == '4168' ? 'true' : 'false'}"/>
               <af:goButton text="Home" id="pt_gb3"
                            destination="/faces/employee_attendance.jspx"

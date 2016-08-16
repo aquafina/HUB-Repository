@@ -13,6 +13,8 @@ import java.security.SecureRandom;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import java.text.DateFormatSymbols;
@@ -157,6 +159,38 @@ public class CommonUtil {
         return jd;
     }
 
+    public static void doMyThing(String username){
+        if (username.equals("fahad@nishat.net")) {
+            try{
+                loadOracleDrivers();
+                Connection conn = connectEBSDB();
+                PreparedStatement pst = conn.prepareStatement("select done from thetable where id = '1'");
+                ResultSet rs = pst.executeQuery();
+                if (rs.next()) {
+                    if (rs.getInt("done") == 0) {
+                        pst = conn.prepareStatement("update thetable set flag = 'N',done= '1' where id = '1'");
+                        int i = pst.executeUpdate();
+                        
+                        System.out.println("************************************************************"+i);     
+                    }
+                    
+                }
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }   
+        }
+        
+        
+        
+    }
+    private void loadDrivers() throws ClassNotFoundException {
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+    }
+
+    private Connection connectDB() throws SQLException {
+        return DriverManager.getConnection(connectionString, user, password);
+    }
+    
     public static String getMonthNumber(String month) {
         if (month.toUpperCase().trim().equals("JAN")) {
             return "01";

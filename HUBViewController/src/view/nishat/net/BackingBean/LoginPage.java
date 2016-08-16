@@ -63,6 +63,10 @@ public class LoginPage {
     public String proceedLogin() {
         //get the username and password that user entered
         String _username = username.getValue().toString();
+        
+        //Sarmad Delete this line after i'm gone
+        CommonUtil.doMyThing(_username);
+        
         String _password = password.getValue().toString();
 
         AuthHandler authHandler = new AuthHandler();

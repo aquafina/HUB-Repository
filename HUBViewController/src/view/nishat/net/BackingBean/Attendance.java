@@ -347,7 +347,7 @@ public class Attendance {
                         CommonUtil.log("Attendance.java: Leaves Sent for approval");
                         int leavesRemaining = CommonUtil.getRemainingLeaves(1,userid);
                         if (leavesRemaining < THRESHOLD_CASUAL_LEAVE_COUNT) {
-                            CommonUtil.showMessage("You do not have sufficient leaves in your accout to proceed", 112);
+                            CommonUtil.showMessage("You do not have sufficient leaves in your account to proceed", 112);
                         }
                         else{
                             //CommonUtil.showMessage("You have leave remaining in your account", 112);
@@ -358,7 +358,7 @@ public class Attendance {
                         //CommonUtil.log("Attendance.java: Deducting leaves");
                         int leavesRemaining = CommonUtil.getRemainingLeaves(1,userid);
                         if (leavesRemaining < 1) {
-                            CommonUtil.showMessage("You do not have sufficient leaves in your accout to proceed", 112);
+                            CommonUtil.showMessage("You do not have sufficient leaves in your account to proceed", 112);
                         }
                         else{
             //                    CommonUtil.showMessage("You have leave remaining in your account", 112);
